@@ -3,5 +3,5 @@ import { CreateEstadoprestamoDto } from './create-estadoprestamo.dto';
 
 export class UpdateEstadoprestamoDto extends PartialType(CreateEstadoprestamoDto) {
 
-    id: number;
+    id_estadoprestamo: number;
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Body, Injectable } from '@nestjs/common';
 import { CreateEstadoprestamoDto } from './dto/create-estadoprestamo.dto';
 import { UpdateEstadoprestamoDto } from './dto/update-estadoprestamo.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -20,7 +20,7 @@ export class EstadoprestamoService {
    
   }
 
-  async todo(){
+  async obtener(){
     return await this.estadoprestamoTabla.find();
   }
 
@@ -32,6 +32,13 @@ export class EstadoprestamoService {
       }
       return false;
     });
+  }
+  async eliminarEstado(id : number){
+    return await this.estadoprestamoTabla.delete({id_estadoprestamo: id});
+  }
+
+  async autualizarEstado(estadoactualizar : UpdateEstadoprestamoDto){
+    return  await this.estadoprestamoTabla.update( estadoactualizar.id_estadoprestamo,estadoactualizar);
   }
 
 
