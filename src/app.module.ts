@@ -8,6 +8,7 @@ import { User } from './user/user.entity';
 import { Estadoprestamo } from './estadoprestamo/entities/estadoprestamo.entity';
 import { EstadoEquipoModule } from './estado-equipo/estado-equipo.module';
 import { Estadoequipo } from './estado-equipo/entities/estado-equipo.entity';
+import { TipoequipoModule } from './tipoequipo/tipoequipo.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -21,7 +22,7 @@ import { Estadoequipo } from './estado-equipo/entities/estado-equipo.entity';
       synchronize: true,
       connectTimeout: 40000,
     }),
-    UserModule,EstadoprestamoModule, EstadoEquipoModule,
+    UserModule,EstadoprestamoModule, EstadoEquipoModule, TipoequipoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
