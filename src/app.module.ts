@@ -9,13 +9,13 @@ import { Estadoprestamo } from './estadoprestamo/entities/estadoprestamo.entity'
 import { EstadoEquipoModule } from './estado-equipo/estado-equipo.module';
 import { Estadoequipo } from './estado-equipo/entities/estado-equipo.entity';
 import { tipoequipoModule } from './tipoequipo/tipoequipo.module';
-import { tipoEquipo } from './tipoequipo/entities/Tipo-Equipo.entity';
 import { RolesModule } from './roles/roles.module';
 import { Roles } from './roles/entities/Roles.entity';
 import { EquipoModule } from './equipo/equipo.module';
 import { DetallePrestamoModule } from './detalle-prestamo/detalle-prestamo.module';
-import { PrestamoModule } from './prestamo/prestamo.module';
 import { NovedadesModule } from './novedades/novedades.module';
+import { PrestamosModule } from './prestamos/prestamos.module';
+import { tipoEquipo } from './tipoequipo/entities/Tipo-Equipo.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -25,11 +25,11 @@ import { NovedadesModule } from './novedades/novedades.module';
       username: 'biblioteca',
       password: '12345',
       database: 'biblioteca',
-      entities: [User,Estadoprestamo,Estadoequipo,tipoEquipo,Roles],
+      entities: [User,Estadoprestamo,Estadoequipo,tipoEquipo,Roles,],
       synchronize: true,
       connectTimeout: 40000,
     }),
-    UserModule,EstadoprestamoModule, EstadoEquipoModule, tipoequipoModule, RolesModule, EquipoModule, DetallePrestamoModule, PrestamoModule, NovedadesModule,
+    UserModule,EstadoprestamoModule, EstadoEquipoModule, tipoequipoModule, RolesModule, EquipoModule, DetallePrestamoModule, NovedadesModule, PrestamosModule,
   ],
   controllers: [AppController],
   providers: [AppService],
