@@ -12,6 +12,10 @@ import { tipoequipoModule } from './tipoequipo/tipoequipo.module';
 import { tipoEquipo } from './tipoequipo/entities/Tipo-Equipo.entity';
 import { RolesModule } from './roles/roles.module';
 import { Roles } from './roles/entities/Roles.entity';
+import { EquipoModule } from './equipo/equipo.module';
+import { DetallePrestamoModule } from './detalle-prestamo/detalle-prestamo.module';
+import { PrestamoModule } from './prestamo/prestamo.module';
+import { NovedadesModule } from './novedades/novedades.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -25,7 +29,7 @@ import { Roles } from './roles/entities/Roles.entity';
       synchronize: true,
       connectTimeout: 40000,
     }),
-    UserModule,EstadoprestamoModule, EstadoEquipoModule, tipoequipoModule, RolesModule,
+    UserModule,EstadoprestamoModule, EstadoEquipoModule, tipoequipoModule, RolesModule, EquipoModule, DetallePrestamoModule, PrestamoModule, NovedadesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
