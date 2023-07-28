@@ -8,7 +8,8 @@ import { User } from './user/user.entity';
 import { Estadoprestamo } from './estadoprestamo/entities/estadoprestamo.entity';
 import { EstadoEquipoModule } from './estado-equipo/estado-equipo.module';
 import { Estadoequipo } from './estado-equipo/entities/estado-equipo.entity';
-import { TipoequipoModule } from './tipoequipo/tipoequipo.module';
+import { tipoequipoModule } from './tipoequipo/tipoequipo.module';
+import { tipoEquipo } from './tipoequipo/entities/Tipo-Equipo.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -18,11 +19,11 @@ import { TipoequipoModule } from './tipoequipo/tipoequipo.module';
       username: 'biblioteca',
       password: '12345',
       database: 'biblioteca',
-      entities: [User,Estadoprestamo,Estadoequipo],
+      entities: [User,Estadoprestamo,Estadoequipo,tipoEquipo],
       synchronize: true,
       connectTimeout: 40000,
     }),
-    UserModule,EstadoprestamoModule, EstadoEquipoModule, TipoequipoModule,
+    UserModule,EstadoprestamoModule, EstadoEquipoModule, tipoequipoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
