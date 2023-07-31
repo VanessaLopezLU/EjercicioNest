@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { tipoEquipo } from './entities/Tipo-Equipo.entity';
+import { TipoEquipo } from './entities/Tipo-Equipo.entity';
 import { Repository } from 'typeorm';
 import { CreateTipoEquipoDto } from './dto/create-tipoEquipo.dto';
 import { UpdateTipoEquipoDto } from './dto/update-tipoEquipo.dto';
@@ -8,8 +8,8 @@ import { UpdateTipoEquipoDto } from './dto/update-tipoEquipo.dto';
 @Injectable()
 export class TipoequipoService {
     constructor(
-        @InjectRepository(tipoEquipo)
-        private TipoEquipoTabla: Repository<tipoEquipo>
+        @InjectRepository(TipoEquipo)
+        private TipoEquipoTabla: Repository<TipoEquipo>
       ) { }
     
       async crearTipo(CreateTipoEquipoDto: CreateTipoEquipoDto) {

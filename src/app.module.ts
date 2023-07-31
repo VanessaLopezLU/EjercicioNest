@@ -7,7 +7,7 @@ import {EstadoprestamoModule} from './estadoprestamo/estadoprestamo.module'
 import { User } from './user/user.entity';
 import { Estadoprestamo } from './estadoprestamo/entities/estadoprestamo.entity';
 import { EstadoEquipoModule } from './estado-equipo/estado-equipo.module';
-import { Estadoequipo } from './estado-equipo/entities/estado-equipo.entity';
+import { EstadoEquipo } from './estado-equipo/entities/estado-equipo.entity';
 import { tipoequipoModule } from './tipoequipo/tipoequipo.module';
 import { RolesModule } from './roles/roles.module';
 import { Roles } from './roles/entities/Roles.entity';
@@ -15,7 +15,8 @@ import { EquipoModule } from './equipo/equipo.module';
 import { DetallePrestamoModule } from './detalle-prestamo/detalle-prestamo.module';
 import { NovedadesModule } from './novedades/novedades.module';
 import { PrestamosModule } from './prestamos/prestamos.module';
-import { tipoEquipo } from './tipoequipo/entities/Tipo-Equipo.entity';
+import { TipoEquipo } from './tipoequipo/entities/Tipo-Equipo.entity';
+import { Equipo} from './equipo/entities/Equipo.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -25,10 +26,11 @@ import { tipoEquipo } from './tipoequipo/entities/Tipo-Equipo.entity';
       username: 'root',
       password: '',
       database: 'biblioteca',
-      entities: [User,Estadoprestamo,Estadoequipo,tipoEquipo,Roles,],
+      entities: [User,Estadoprestamo,EstadoEquipo,TipoEquipo,Roles,Equipo],
       synchronize: true,
       connectTimeout: 40000,
-    }),
+      autoLoadEntities: true,
+        }),
     UserModule,EstadoprestamoModule, EstadoEquipoModule, tipoequipoModule, RolesModule, EquipoModule, DetallePrestamoModule, NovedadesModule, PrestamosModule,
   ],
   controllers: [AppController],

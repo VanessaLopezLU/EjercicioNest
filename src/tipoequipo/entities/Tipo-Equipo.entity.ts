@@ -1,13 +1,18 @@
-import { Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Equipo } from "src/equipo/entities/Equipo.entity";
+import { Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 
 @Entity()
-export class tipoEquipo {
+export class TipoEquipo {
+    
 
     @PrimaryGeneratedColumn()
     id_tipo:number;
 
     @Column()
     tipo:string;
+    
+    @OneToMany(() => Equipo,(equipo)  => equipo.tipoequipo)
+    equipo: Equipo[];
    
 
 }

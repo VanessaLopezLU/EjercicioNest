@@ -4,13 +4,13 @@ import { CreateEstadoEquipoDto } from './dto/create-estadoequipo.dto';
 import { UpdateEstadoEquipoDto } from './dto/update-estadoequipo.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Estadoequipo } from './entities/estado-equipo.entity';
+import { EstadoEquipo } from './entities/estado-equipo.entity';
 
 @Injectable()
 export class EstadoEquipoService {
   constructor(
-    @InjectRepository(Estadoequipo)
-    private estadoequipoTabla: Repository<Estadoequipo>
+    @InjectRepository(EstadoEquipo)
+    private estadoequipoTabla: Repository<EstadoEquipo>
   ) { }
 
   async crear(CreateEstadoEquipoDto: CreateEstadoEquipoDto) {
