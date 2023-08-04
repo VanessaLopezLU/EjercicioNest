@@ -1,13 +1,12 @@
-export class UserDto{
+export class EquipoDto{
    
-    id :number;
 
     serial: string;
 
     descripcion: string;
-    
-    id_tipo: number;
 
     id_estado: number;
+
+    id_tipo: number;
 }
    

@@ -1,5 +1,6 @@
+import { Prestamo } from 'src/prestamos/entities/prestamos.entity';
 import { Roles } from 'src/roles/entities/Roles.entity';
-import { Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 
 @Entity()
 export class User {
@@ -16,19 +17,25 @@ export class User {
     @Column()
     Correo: string;
 
-    @Column()
-    Telefone: number;
+    @Column({type: 'bigint'})
+    Telefono: number;
 
     @Column()
     Usuario: string;
 
     @Column()
-    Contraseña: string;
+    Contrasena: string;
 
     
     @ManyToOne(type => Roles, roles => roles.user)
     @JoinColumn({ name: 'id_rol'})
     roles: Roles[];
+
+
+    @OneToMany(type =>  Prestamo, prestamos => prestamos.user)
+    prestamos: Prestamo[]; 
+   
+
 
 
 }

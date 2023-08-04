@@ -6,12 +6,12 @@ import { Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, Primar
 export class EstadoEquipo {
 
     @PrimaryGeneratedColumn()
-    id_estado:number;
+    id:number;
 
     @Column()
     estado:string;
 
-    @OneToMany(type => Equipo,equipo  => equipo.estadoequipo)
+    @OneToMany(type => Equipo,equipo  => equipo.id_estado)
     equipo: Equipo[];
 
 }

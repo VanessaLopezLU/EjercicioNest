@@ -1,6 +1,6 @@
 import { EstadoEquipo } from "src/estado-equipo/entities/estado-equipo.entity";
 import { TipoEquipo } from "src/tipoequipo/entities/Tipo-Equipo.entity";
-import { Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn,ManyToOne, JoinColumn } from "typeorm";
+import { Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn,ManyToOne, JoinColumn, OneToMany } from "typeorm";
 
 @Entity()
 export class Equipo {
@@ -15,13 +15,15 @@ export class Equipo {
     descripcion: string;
 
 
-    @ManyToOne(type => EstadoEquipo, Estadoequipo => Estadoequipo.equipo)
+    @ManyToOne(() => EstadoEquipo, Estadoequipo => Estadoequipo.equipo)
     @JoinColumn({ name: 'id_estado'})
-    estadoequipo: EstadoEquipo[];
+    id_estado: EstadoEquipo[];
 
     @ManyToOne(() => TipoEquipo, (tipoequipo) => tipoequipo.equipo)
     @JoinColumn({ name: 'id_tipo'})
-    tipoequipo: TipoEquipo[];
+    id_tipo: TipoEquipo[];
+
+   
 
 
 }

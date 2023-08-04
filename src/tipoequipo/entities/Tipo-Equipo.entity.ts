@@ -11,7 +11,7 @@ export class TipoEquipo {
     @Column()
     tipo:string;
     
-    @OneToMany(() => Equipo,(equipo)  => equipo.tipoequipo)
+    @OneToMany(() => Equipo,(equipo)  => equipo.id_tipo)
     equipo: Equipo[];
    
 
