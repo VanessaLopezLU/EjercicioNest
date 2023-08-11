@@ -22,11 +22,11 @@ export class UserService {constructor(
    }
 
    async ObtenerUser(){
-    return await this.Usertabla.find();
+    return await this.Usertabla.find({relations: {id_rol: true}});
    }
 
    async ValidarQueNoExista(UsuarioC:UserDto){
-    return await this.Usertabla.findOne({ where: {Cedula:UsuarioC.Cedula}}).then((resp) =>{
+    return await this.Usertabla.findOne({ where: {Cedula:UsuarioC.Cedula}, relations: {id_rol: true}}).then((resp) =>{
         if(resp == null){
             return true;
         }

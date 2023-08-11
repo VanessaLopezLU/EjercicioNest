@@ -30,8 +30,9 @@ import { Prestamo } from './prestamos/entities/prestamos.entity';
       password: '',
       database: 'biblioteca',
       entities: [User,Estadoprestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedade,Prestamo],
-      synchronize: true,
+      synchronize: false,
       autoLoadEntities: true,
+      
         }),
     UserModule,EstadoprestamoModule, EstadoEquipoModule, tipoequipoModule, RolesModule, EquipoModule, NovedadesModule, PrestamosModule,
   ],

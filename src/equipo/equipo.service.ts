@@ -21,11 +21,11 @@ export class EquipoService {
         return 'Ya Existe'
     }
     async ObtenerEquipo() {
-        return await this.Equipotabla.find();
+        return await this.Equipotabla.find({relations: {id_estado: true, id_tipo: true }});
     }
 
     async ValidarQueNoExista(serialE:EquipoDto) {
-        return await this.Equipotabla.findOne({where: {serial:serialE.serial}}).then((resp) =>{
+        return await this.Equipotabla.findOne({where: {serial:serialE.serial}, relations:  {id_estado: true, id_tipo: true } }).then((resp) =>{
             if(resp == null){
                 return true;
             }

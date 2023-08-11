@@ -2,7 +2,6 @@
 import { Equipo } from "src/equipo/entities/Equipo.entity";
 import { Estadoprestamo } from "src/estadoprestamo/entities/estadoprestamo.entity";
 import { Novedade  } from "src/novedades/entities/novedades.entity";
-import { TipoEquipo } from "src/tipoequipo/entities/Tipo-Equipo.entity";
 import { User } from "src/user/user.entity";
 import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -14,6 +13,10 @@ export class   Prestamo{
 
     @Column()
     ambiente: string;
+
+    @Column()
+    fecha_prestamo: Date;
+
 
     @ManyToOne(() => User, (user) => user.prestamos)
     @JoinColumn({ name: 'cedula'})

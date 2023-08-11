@@ -29,7 +29,7 @@ export class User {
     
     @ManyToOne(type => Roles, roles => roles.user)
     @JoinColumn({ name: 'id_rol'})
-    roles: Roles[];
+    id_rol: Roles;
 
 
     @OneToMany(type =>  Prestamo, prestamos => prestamos.user)

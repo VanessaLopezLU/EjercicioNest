@@ -1,18 +1,37 @@
-export class UserDto{
-   
-    Cedula:number;
 
+import { IsNotEmpty, IsInt, IsString } from "class-validator";
+import { Roles } from "src/roles/entities/Roles.entity";
+export class UserDto {
+
+    @IsInt()
+    @IsNotEmpty()
+    Cedula: number;
+
+    @IsString()
+    @IsNotEmpty()
     Nombre: string;
 
+    @IsString()
+    @IsNotEmpty()
     Apellido: string;
-    
+
+    @IsString()
+    @IsNotEmpty()
     Correo: string;
 
+    @IsInt()
+    @IsNotEmpty()
     Telefone: number;
 
+    @IsString()
+    @IsNotEmpty()
     Usuario: string;
 
-    Contraseña: string;
-    
-    id_rol: number;
+    @IsString()
+    @IsNotEmpty()
+    Contrasena: string;
+
+    @IsInt()
+    @IsNotEmpty()
+    id_rol: Roles;
 }
