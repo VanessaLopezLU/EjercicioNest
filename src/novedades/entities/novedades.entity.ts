@@ -7,9 +7,22 @@ export class Novedade{
     @PrimaryGeneratedColumn()
     id_novedades: number;
     
+   
+    @Column()
+    descripcion: string;
+
+    @Column()
+    fechaNovedad: string;
+
+    @Column()
+    tipoNovedad: string;
+
     @ManyToOne(()=>Prestamo,prestamo=>prestamo.novedades)
     @JoinColumn({name:'id_prestamo'})
     prestamo:Prestamo[];
+
+
+
 
 
 }

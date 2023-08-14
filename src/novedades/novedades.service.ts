@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreatePrestamoDto } from 'src/prestamos/dto/create-prestamo.dto';
-import { UpdatePrestamoDto } from 'src/prestamos/dto/update-prestamo.dto';
+import { CreateNovedadesDto} from 'src/novedades/dto/create-novedades.dto';
+import { UpdateNovedadesDto} from 'src/novedades/dto/update-novedades.dto';
 import { Prestamo } from 'src/prestamos/entities/prestamos.entity';
 import { Repository } from 'typeorm';
 import { Novedade } from './entities/novedades.entity';
@@ -10,30 +10,30 @@ import { Novedade } from './entities/novedades.entity';
 export class NovedadesService {
     constructor(
         @InjectRepository(Novedade)
-        private PrestamoTabla: Repository<Prestamo>
+        private NovedadesTabla: Repository<Novedade>
     ){}
-    async Crearprestamo(CreatePrestamoDto: CreatePrestamoDto){
-        let Noexiste = await this.ValidarQueNoExista(CreatePrestamoDto);
+    async CrearNovedad(CreateNovedadespoDto: CreateNovedadesDto){
+        let Noexiste = await this.ValidarQueNoExista(CreateNovedadespoDto);
         if(Noexiste){
-            return await this.PrestamoTabla.insert(CreatePrestamoDto)
+            return await this.NovedadesTabla.insert(CreateNovedadespoDto)
         }
         return 'Ya Existe'
     }
-    async ObtenerPrestamo(){
-        return await this.PrestamoTabla.find();
+    async ObtenerNovedad(){
+        return await this.NovedadesTabla.find();
     }
-    async ValidarQueNoExista(ambineteP:CreatePrestamoDto){
-        return await this.PrestamoTabla.findOne({where:{ambiente:ambineteP.ambiente}}).then((resp)=>{
+    async ValidarQueNoExista(descripcionN:CreateNovedadesDto){
+        return await this.NovedadesTabla.findOne({where:{descripcion:descripcionN.descripcion}}).then((resp)=>{
             if(resp==null){
                 return true;
             }
             return false;
         })
     }
-    async EliminarPrestamo(id:number){
-        return await this.PrestamoTabla.delete({id_prestamo:id});
+    async EliminarNovedad(id:number){
+        return await this.NovedadesTabla.delete({id_novedades:id});
     }
-    async ActualizarPrestamo(Prestamoactualizar: UpdatePrestamoDto){
-        return await this.PrestamoTabla.update(Prestamoactualizar.id_prestamo,Prestamoactualizar)
+    async ActualizarNovedad(Novedadesactualizar: UpdateNovedadesDto){
+        return await this.NovedadesTabla.update(Novedadesactualizar.id_Novedades,Novedadesactualizar)
     }
 }
