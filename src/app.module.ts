@@ -21,6 +21,7 @@ import { Equipo} from './equipo/entities/Equipo.entity';
 import { Novedade } from './novedades/entities/novedades.entity';
 import { Prestamo } from './prestamos/entities/prestamos.entity';
 import { EstadoUsuarioModule } from './estado_usuario/estado_usuario.module';
+import { EstadoUsuario } from './estado_usuario/entities/estadousuario.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -30,7 +31,7 @@ import { EstadoUsuarioModule } from './estado_usuario/estado_usuario.module';
       username: 'root',
       password: '',
       database: 'biblioteca',
-      entities: [User,Estadoprestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedade,Prestamo],
+      entities: [User,Estadoprestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedade,Prestamo,EstadoUsuario],
       synchronize: false,
       autoLoadEntities: true,
       

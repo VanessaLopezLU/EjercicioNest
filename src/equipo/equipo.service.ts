@@ -10,33 +10,33 @@ import { UpdateEquipoDto } from './dto/update-equipo.dto';
 export class EquipoService {
         constructor(
             @InjectRepository(Equipo)
-            private Equipotabla: Repository<Equipo>
+            private equipoTabla: Repository<Equipo>
         ) { }
 
-    async CrearEquipo(EquipoDtoA) {
-        let Noexiste = await this.ValidarQueNoExista(EquipoDtoA);
+    async crearEquipo(equipoDtoA) {
+        let Noexiste = await this.validarQueNoExista(equipoDtoA);
         if (Noexiste) {
-            return await this.Equipotabla.insert(EquipoDtoA)
+            return await this.equipoTabla.insert(equipoDtoA)
         }
         return 'Ya Existe'
     }
-    async ObtenerEquipo() {
-        return await this.Equipotabla.find({relations: {id_estado: true, id_tipo: true }});
+    async obtenerEquipo() {
+        return await this.equipoTabla.find({relations: {id_estado: true, id_tipo: true }});
     }
 
-    async ValidarQueNoExista(serialE:EquipoDto) {
-        return await this.Equipotabla.findOne({where: {serial:serialE.serial}, relations:  {id_estado: true, id_tipo: true } }).then((resp) =>{
+    async validarQueNoExista(serialE:EquipoDto) {
+        return await this.equipoTabla.findOne({where: {serial:serialE.serial}, relations:  {id_estado: true, id_tipo: true } }).then((resp) =>{
             if(resp == null){
                 return true;
             }
             return false;
         })
     }
-    async EliminarEquipo(id: number){
-        return await this.Equipotabla.delete({id_equipo: id});
+    async eliminarEquipo(id: number){
+        return await this.equipoTabla.delete({id : id});
     }
-    async ActualizarEquipo(equipoactualizar ){
-        return await this.Equipotabla.update(equipoactualizar.id_equipo,equipoactualizar);
+    async actualizarEquipo(equipoActualizar ){
+        return await this.equipoTabla.update(equipoActualizar.id_equipo,equipoActualizar);
     }
 
 }

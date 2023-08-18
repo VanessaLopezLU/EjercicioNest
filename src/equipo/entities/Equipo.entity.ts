@@ -6,7 +6,7 @@ import { Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, Primar
 export class Equipo {
 
     @PrimaryGeneratedColumn()
-    id_equipo: number;
+    id: number;
 
     @Column()
     serial: string;

@@ -6,21 +6,21 @@ import { UpdateEquipoDto } from './dto/update-equipo.dto';
 @Controller('equipo')
 export class EquipoController {
   constructor(private readonly equipoService: EquipoService) {}
-   @Post('/crearEquipo')
-  crear(@Body() EquipoDto: EquipoDto) {
-    return this.equipoService.CrearEquipo(EquipoDto);
+   @Post('/crear')
+  crear(@Body() equipoDto: EquipoDto) {
+    return this.equipoService.crearEquipo(equipoDto);
   }
 
-  @Get('/obtenerEquipo')
-  obtenerdatos() {
-    return this.equipoService.ObtenerEquipo();
+  @Get()
+  obtenerDatos() {
+    return this.equipoService.obtenerEquipo();
   }
-  @Delete('/eliminarEquipo/:id')
+  @Delete('/:id')
   eliminar(@Param('id') id: number) {
-    return this.equipoService.EliminarEquipo(id);
+    return this.equipoService.eliminarEquipo(id);
   }
-  @Put('/actualizarEquipo') 
-    actualizarEstado(@Body() UpdateEquipoDto: UpdateEquipoDto){
-      return this.equipoService.ActualizarEquipo(UpdateEquipoDto);
+  @Put('/actualizar') 
+    actualizarEstado(@Body() updateEquipoDto: UpdateEquipoDto){
+      return this.equipoService.actualizarEquipo(updateEquipoDto);
   } 
 }

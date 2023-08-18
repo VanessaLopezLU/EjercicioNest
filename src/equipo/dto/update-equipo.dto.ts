@@ -5,5 +5,5 @@ import { IsInt, IsNotEmpty } from 'class-validator';
 export class UpdateEquipoDto extends PartialType(EquipoDto) {
     @IsInt()
     @IsNotEmpty()
-    id_equipo :number;
+    id :number;
 }
