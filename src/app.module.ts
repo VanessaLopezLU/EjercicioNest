@@ -20,6 +20,7 @@ import { Equipo} from './equipo/entities/Equipo.entity';
 
 import { Novedade } from './novedades/entities/novedades.entity';
 import { Prestamo } from './prestamos/entities/prestamos.entity';
+import { EstadoUsuarioModule } from './estado_usuario/estado_usuario.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -34,7 +35,7 @@ import { Prestamo } from './prestamos/entities/prestamos.entity';
       autoLoadEntities: true,
       
         }),
-    UserModule,EstadoprestamoModule, EstadoEquipoModule, tipoequipoModule, RolesModule, EquipoModule, NovedadesModule, PrestamosModule,
+    UserModule,EstadoprestamoModule, EstadoEquipoModule, tipoequipoModule, RolesModule, EquipoModule, NovedadesModule, PrestamosModule, EstadoUsuarioModule,
   ],
   controllers: [AppController],
   providers: [AppService],

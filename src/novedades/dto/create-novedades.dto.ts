@@ -16,6 +16,6 @@ export class CreateNovedadesDto {
 
     @IsInt()
     @IsNotEmpty()
-    id_prestamo
+    id_prestamo: number;
 
 }
