@@ -20,7 +20,8 @@ export class EquipoController {
     return this.equipoService.eliminarEquipo(id);
   }
   @Put('/actualizar') 
-    actualizarEstado(@Body() updateEquipoDto: UpdateEquipoDto){
+    actualizarEquipo(@Body() updateEquipoDto: UpdateEquipoDto){
       return this.equipoService.actualizarEquipo(updateEquipoDto);
+
   } 
 }

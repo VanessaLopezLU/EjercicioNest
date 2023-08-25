@@ -35,8 +35,8 @@ export class EquipoService {
     async eliminarEquipo(id: number){
         return await this.equipoTabla.delete({id : id});
     }
-    async actualizarEquipo(equipoActualizar ){
-        return await this.equipoTabla.update(equipoActualizar.id_equipo,equipoActualizar);
+    async actualizarEquipo(equipoActualizar){
+        return await this.equipoTabla.update(equipoActualizar.id,equipoActualizar);
     }
 
 }

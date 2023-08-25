@@ -21,7 +21,7 @@ export class EstadoEquipoController {
   }
   @Put('/actualizarestado') 
     actualizarEstado(@Body() UpdateEstadoEquipoDto: UpdateEstadoEquipoDto){
-      return this.estadoEquipoService.ActualizarEstado(UpdateEstadoEquipoDto);
+      return this.estadoEquipoService.actualizarestado(UpdateEstadoEquipoDto);
   }
   
  

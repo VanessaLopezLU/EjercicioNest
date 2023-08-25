@@ -38,7 +38,7 @@ export class EstadoEquipoService {
   async eliminarestado(id : number){
     return await this.estadoequipoTabla.delete({id: id});
   }
-  async ActualizarEstado(estadoactualizar : UpdateEstadoEquipoDto){
+  async actualizarestado(estadoactualizar : UpdateEstadoEquipoDto){
     return  await this.estadoequipoTabla.update( estadoactualizar.id,estadoactualizar);
   }
 
