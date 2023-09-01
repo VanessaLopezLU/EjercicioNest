@@ -1,4 +1,5 @@
-import {Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn } from "typeorm";
+import {Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { User } from "src/user/user.entity";
 
 @Entity()
 export class EstadoUsuario{
@@ -7,6 +8,10 @@ export class EstadoUsuario{
   
 
   @Column()
-  estadousuario: string;
+  estado: string;
+  
+  @OneToMany(type => User, user => user.id)
+  user: User[]; 
+ 
 
 }
