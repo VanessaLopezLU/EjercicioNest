@@ -12,17 +12,17 @@ export class EstadoprestamoController {
     return this.estadoprestamoService.create(createEstadoprestamoDto);
   }
 
-  @Get('/obtener')
+  @Get('')
   obtenerdatos() {
     return this.estadoprestamoService.obtener();
   }
-  @Delete('/eliminar/:id')
+  @Delete('/:id')
   eliminar(@Param('id') id: number) {
     return this.estadoprestamoService.eliminarEstado(id);
   }
   @Put('/actualizar') 
     actualizarEstado(@Body() UpdateEstadoprestamoDto: UpdateEstadoprestamoDto){
-      return this.estadoprestamoService.autualizarEstado(UpdateEstadoprestamoDto);
+    return this.estadoprestamoService.actualizarEstado(UpdateEstadoprestamoDto);
   }
 
 

@@ -34,11 +34,11 @@ export class EstadoprestamoService {
     });
   }
   async eliminarEstado(id : number){
-    return await this.estadoprestamoTabla.delete({id_estadoprestamo: id});
+    return await this.estadoprestamoTabla.delete({id: id});
   }
 
-  async autualizarEstado(estadoactualizar : UpdateEstadoprestamoDto){
-    return  await this.estadoprestamoTabla.update( estadoactualizar.id_estadoprestamo,estadoactualizar);
+  async actualizarEstado(estadoactualizar : UpdateEstadoprestamoDto){
+    return  await this.estadoprestamoTabla.update( estadoactualizar.id,estadoactualizar);
   }
 
 

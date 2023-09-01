@@ -5,7 +5,7 @@ import { Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, Primar
 export class Estadoprestamo {
 
     @PrimaryGeneratedColumn()
-    id_estadoprestamo:number;
+    id:number;
 
     @Column()
     estado:string;
