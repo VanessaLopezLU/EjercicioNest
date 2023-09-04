@@ -1,6 +1,7 @@
 
 import { IsNotEmpty, IsInt, IsString } from "class-validator";
 import { Roles } from "src/roles/entities/Roles.entity";
+
 export class UserDto {
 
     @IsInt()

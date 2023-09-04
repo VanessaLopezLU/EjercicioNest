@@ -10,7 +10,7 @@ export class RolesController {
   crearRoles(@Body()CreateRolesDto: CreateRolesDto){
     return this.rolesService.crearRoles(CreateRolesDto);
   }
-  @Get('/')
+  @Get('/obtener')
   obtenerRoles(){
     return this.rolesService.obtenerRoles();
   }

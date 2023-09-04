@@ -10,7 +10,7 @@ export class UserController {
   CrearUser(@Body()UserDto: UserDto){
    return this.userService.CrearUser(UserDto);
  }
- @Get('/obtener')
+ @Get('')
  obtener() {
    return this.userService.ObtenerUser();
  }

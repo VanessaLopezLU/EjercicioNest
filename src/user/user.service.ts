@@ -13,10 +13,10 @@ export class UserService {constructor(
     ){}
 
 
-   async CrearUser(UserDto:UserDto){
-    let Noexiste = await this.ValidarQueNoExista(UserDto);
+   async CrearUser(userDto:UserDto){
+    let Noexiste = await this.ValidarQueNoExista(userDto);
     if(Noexiste){
-        return await this.Usertabla.insert(UserDto);
+        return await this.Usertabla.insert(userDto);
     }
     return 'Ya Existe';
    }
@@ -40,4 +40,3 @@ export class UserService {constructor(
     return await this.Usertabla.update({Cedula:UserActualizar.Cedula},UserActualizar);
    }
 }
-

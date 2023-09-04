@@ -29,9 +29,7 @@ export class User {
     Contrasena: string;
 
     
-    @ManyToOne(type => Roles, roles => roles.user)
-    @JoinColumn({ name: 'id_rol'})
-    id_rol: Roles;
+    
 
     @ManyToOne( type => EstadoUsuario, estadousuario => estadousuario.user)
     @JoinColumn({ name: 'id'})
@@ -40,6 +38,10 @@ export class User {
 
     @OneToMany(type =>  Prestamo, prestamos => prestamos.user)
     prestamos: Prestamo[]; 
+
+    @ManyToOne(type => Roles, roles => roles.user)
+    @JoinColumn({ name: 'id_rol'})
+    id_rol: Roles;
    
 
 
