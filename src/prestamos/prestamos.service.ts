@@ -30,7 +30,7 @@ export class PrestamosService {
         })
     }
     async EliminarPrestamo(id:number){
-        return await this.PrestamoTabla.delete({id_prestamo:id});
+        return await this.PrestamoTabla.delete({id:id});
     }
     async ActualizarPrestamo(Prestamoactualizar: UpdatePrestamoDto){
         return await this.PrestamoTabla.update(Prestamoactualizar.id_prestamo,Prestamoactualizar)

@@ -5,7 +5,7 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColum
 @Entity()
 export class Novedade{
     @PrimaryGeneratedColumn()
-    id_novedades: number;
+    id: number;
     
    
     @Column()

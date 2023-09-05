@@ -1,38 +1,44 @@
 
 import { IsNotEmpty, IsInt, IsString } from "class-validator";
+import { EstadoUsuario } from "src/estado_usuario/entities/estadousuario.entity";
 import { Roles } from "src/roles/entities/Roles.entity";
 
 export class UserDto {
 
     @IsInt()
     @IsNotEmpty()
-    Cedula: number;
+    cedula: number;
 
     @IsString()
     @IsNotEmpty()
-    Nombre: string;
+    nombre: string;
 
     @IsString()
     @IsNotEmpty()
-    Apellido: string;
+    apellido: string;
 
     @IsString()
     @IsNotEmpty()
-    Correo: string;
+    correo: string;
 
     @IsInt()
     @IsNotEmpty()
-    Telefone: number;
+    telefone: number;
 
     @IsString()
     @IsNotEmpty()
-    Usuario: string;
+    usuario: string;
 
     @IsString()
     @IsNotEmpty()
-    Contrasena: string;
+    contrasena: string;
 
     @IsInt()
     @IsNotEmpty()
     id_rol: Roles;
+
+    @IsInt()
+    @IsNotEmpty()
+    id_estado: EstadoUsuario;
+
 }

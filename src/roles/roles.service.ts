@@ -34,7 +34,7 @@ export class RolesService {constructor(
     });
   }
   async eliminarRoles(id : number){
-    return await this.RolesTabla.delete({id_rol: id});
+    return await this.RolesTabla.delete({id: id});
   }
   async autualizarRoles(Rolesactualizar :UpdateRolesDto){
     return  await this.RolesTabla.update( Rolesactualizar.id_rol,Rolesactualizar);

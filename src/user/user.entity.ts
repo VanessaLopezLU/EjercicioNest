@@ -8,32 +8,32 @@ import { Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, Many
 export class User {
 
     @PrimaryColumn()
-    Cedula: number;
+    cedula: number;
 
     @Column()
-    Nombre: string;
+    nombre: string;
 
     @Column()
-    Apellido: string;
+    apellido: string;
 
     @Column()
-    Correo: string;
+    correo: string;
 
     @Column({type: 'bigint'})
-    Telefono: number;
+    telefono: number;
 
     @Column()
-    Usuario: string;
+    usuario: string;
 
     @Column()
-    Contrasena: string;
+    contrasena: string;
 
     
     
 
     @ManyToOne( type => EstadoUsuario, estadousuario => estadousuario.user)
     @JoinColumn({ name: 'id'})
-    id: EstadoUsuario;
+    id_estado: EstadoUsuario;
 
 
     @OneToMany(type =>  Prestamo, prestamos => prestamos.user)

@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { EstadoprestamoService } from './estadoprestamo.service';
 import { EstadoprestamoController } from './estadoprestamo.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Estadoprestamo } from './entities/estadoprestamo.entity';
+import { EstadoPrestamo } from './entities/estadoprestamo.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Estadoprestamo])],
+  imports: [TypeOrmModule.forFeature([EstadoPrestamo])],
   controllers: [EstadoprestamoController],
   providers: [EstadoprestamoService],
   exports:[TypeOrmModule]

@@ -10,7 +10,7 @@ export class EstadoUsuario{
   @Column()
   estado: string;
   
-  @OneToMany(type => User, user => user.id)
+  @OneToMany(type => User, user => user.id_estado)
   user: User[]; 
  
 

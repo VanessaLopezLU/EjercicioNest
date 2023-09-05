@@ -6,7 +6,7 @@ export class TipoEquipo {
     
 
     @PrimaryGeneratedColumn()
-    id_tipo:number;
+    id:number;
 
     @Column()
     tipo:string;

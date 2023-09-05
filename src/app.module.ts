@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import {EstadoprestamoModule} from './estadoprestamo/estadoprestamo.module' 
 import { User } from './user/user.entity';
-import { Estadoprestamo } from './estadoprestamo/entities/estadoprestamo.entity';
+import { EstadoPrestamo } from './estadoprestamo/entities/estadoprestamo.entity';
 import { EstadoEquipoModule } from './estado-equipo/estado-equipo.module';
 import { EstadoEquipo } from './estado-equipo/entities/estado-equipo.entity';
 import { tipoequipoModule } from './tipoequipo/tipoequipo.module';
@@ -32,7 +32,7 @@ import 'dotenv/config';
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_DATABASE,
-      entities: [User,Estadoprestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedade,Prestamo,EstadoUsuario],
+      entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedade,Prestamo,EstadoUsuario],
       synchronize: false,
       ssl: {
         rejectUnauthorized: false

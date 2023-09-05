@@ -5,7 +5,7 @@ import { Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, Primar
 export class Roles {
 
     @PrimaryGeneratedColumn()
-    id_rol:number;
+    id:number;
 
     @Column()
     descripcion:string;

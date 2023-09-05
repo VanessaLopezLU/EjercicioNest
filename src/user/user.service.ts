@@ -26,7 +26,7 @@ export class UserService {constructor(
    }
 
    async ValidarQueNoExista(UsuarioC:UserDto){
-    return await this.Usertabla.findOne({ where: {Cedula:UsuarioC.Cedula}, relations: {id_rol: true}}).then((resp) =>{
+    return await this.Usertabla.findOne({ where: {cedula:UsuarioC.cedula}, relations: {id_rol: true}}).then((resp) =>{
         if(resp == null){
             return true;
         }
@@ -34,9 +34,9 @@ export class UserService {constructor(
     });
    }
    async eliminarUser(cedula:number){
-    return await this.Usertabla.delete({Cedula:cedula});
+    return await this.Usertabla.delete({cedula:cedula});
    }
    async actualizarUser(UserActualizar:UserDto){
-    return await this.Usertabla.update({Cedula:UserActualizar.Cedula},UserActualizar);
+    return await this.Usertabla.update({cedula:UserActualizar.cedula},UserActualizar);
    }
 }

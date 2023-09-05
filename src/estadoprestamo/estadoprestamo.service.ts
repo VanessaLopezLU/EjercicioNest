@@ -3,12 +3,12 @@ import { CreateEstadoprestamoDto } from './dto/create-estadoprestamo.dto';
 import { UpdateEstadoprestamoDto } from './dto/update-estadoprestamo.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Estadoprestamo } from './entities/estadoprestamo.entity';
+import { EstadoPrestamo } from './entities/estadoprestamo.entity';
 @Injectable()
 export class EstadoprestamoService {
   constructor(
-    @InjectRepository(Estadoprestamo)
-    private estadoprestamoTabla:Repository<Estadoprestamo>
+    @InjectRepository(EstadoPrestamo)
+    private estadoprestamoTabla:Repository<EstadoPrestamo>
   ){}
 
   async create(createEstadoprestamoDto: CreateEstadoprestamoDto) {
