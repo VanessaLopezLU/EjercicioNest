@@ -22,17 +22,21 @@ import { Novedade } from './novedades/entities/novedades.entity';
 import { Prestamo } from './prestamos/entities/prestamos.entity';
 import { EstadoUsuarioModule } from './estado_usuario/estado_usuario.module';
 import { EstadoUsuario } from './estado_usuario/entities/estadousuario.entity';
+import 'dotenv/config';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'biblioteca',
+      host: process.env.DB_HOST,
+      port:parseInt( process.env.DB_PORT),
+      username: process.env.DB_USER,
+      password: process.env.DB_PASS,
+      database: process.env.DB_DATABASE,
       entities: [User,Estadoprestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedade,Prestamo,EstadoUsuario],
-      synchronize: false,
+      synchronize: true,
+      ssl: {
+        rejectUnauthorized: false
+      },
       autoLoadEntities: true,
       
         }),
