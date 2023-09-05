@@ -4,7 +4,7 @@ import { CreateEstadoEquipoDto } from 'src/estado-equipo/dto/create-estadoequipo
 import { CreateEstadoUsuarioDto } from './dto/create-estadousuario.dto';
 import { UpdateEstadoUsuarioDto } from './dto/update-estadousuario.dto';
 
-@Controller('estadousuario')
+@Controller('estado-usuario')
 export class EstadoUsuarioController {
   constructor(private readonly estadoUsuarioService: EstadoUsuarioService) {}
   @Post('/crear')

@@ -14,7 +14,7 @@ export class UserController {
  obtener() {
    return this.userService.ObtenerUser();
  }
- @Delete('/eliminar/:cedula')
+ @Delete('/:cedula')
  eliminar(@Param('cedula') cedula: number) {
    return this.userService.eliminarUser(cedula);
  }

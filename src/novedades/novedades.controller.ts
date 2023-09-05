@@ -3,21 +3,21 @@ import { NovedadesService } from './novedades.service';
 import { CreateNovedadesDto } from './dto/create-novedades.dto';
 import { UpdateNovedadesDto } from './dto/update-novedades.dto';
 
-@Controller('novedades')
+@Controller('novedad')
 export class NovedadesController {
   constructor(private readonly novedadesService: NovedadesService) {}
 
-  @Post('/crearNovedad')
+  @Post('/crear')
   create(@Body() CreateNovedadesDto: CreateNovedadesDto){
     return this.novedadesService.CrearNovedad(CreateNovedadesDto);
   }
 
-  @Get('/obtenerNovedad')
+  @Get('')
   ObtenerNovedad(){
     return this.novedadesService.ObtenerNovedad();
   }
 
-  @Delete('/eliminar/:id')
+  @Delete('/:id')
   EliminarNovedad(@Param('id') id: number){
     return this.novedadesService.EliminarNovedad(id);
   }

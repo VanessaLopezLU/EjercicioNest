@@ -3,23 +3,23 @@ import { TipoequipoService } from './tipoequipo.service';
 import { CreateTipoEquipoDto } from './dto/create-tipoEquipo.dto';
 import { UpdateTipoEquipoDto } from './dto/update-tipoEquipo.dto';
 
-@Controller('tipoequipo')
+@Controller('tipo-equipo')
 export class TipoequipoController {
   constructor(private readonly tipoequipoService: TipoequipoService) {}
-  @Post('/crearTipo')
+  @Post('/crear')
   crearTipo(@Body() CreateTipoEquipoDto: CreateTipoEquipoDto) {
     return this.tipoequipoService.crearTipo(CreateTipoEquipoDto);
   }
 
-  @Get('/obtenerTipo')
+  @Get('')
   obtenerTipo() {
     return this.tipoequipoService.obtenerTipo();
   }
-  @Delete('/eliminarTipo/:id')
+  @Delete('/:id')
   eliminarTipo(@Param('id') id: number) {
     return this.tipoequipoService.eliminarTipo(id);
   }
-  @Put('/actualizarTipo') 
+  @Put('/actualizar') 
     actualizarTipo(@Body() UpdateTipoEquipoDto: UpdateTipoEquipoDto){
       return this.tipoequipoService.autualizarTipo(UpdateTipoEquipoDto);
   }
