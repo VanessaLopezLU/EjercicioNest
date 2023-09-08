@@ -38,6 +38,6 @@ export class TipoequipoService {
         return await this.TipoEquipoTabla.delete({id: id});
       }
       async autualizarTipo(tipoactualizar :UpdateTipoEquipoDto){
-        return  await this.TipoEquipoTabla.update( tipoactualizar.id_tipo,tipoactualizar);
+        return  await this.TipoEquipoTabla.update( tipoactualizar.id,tipoactualizar);
       }
 }

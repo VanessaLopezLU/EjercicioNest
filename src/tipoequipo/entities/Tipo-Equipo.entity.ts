@@ -3,7 +3,6 @@ import { Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, Primar
 
 @Entity()
 export class TipoEquipo {
-    
 
     @PrimaryGeneratedColumn()
     id:number;

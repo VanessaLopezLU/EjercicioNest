@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { EquipoService } from './equipo.service';
 import { EquipoDto } from './dto/create-equipo.dto';
 import { UpdateEquipoDto } from './dto/update-equipo.dto';
+import { Equipo } from './entities/Equipo.entity';
 
 @Controller('equipo')
 export class EquipoController {
@@ -15,6 +16,11 @@ export class EquipoController {
   obtenerDatos() {
     return this.equipoService.obtenerEquipo();
   }
+  
+  @Get('/estado-tipo')
+  async obtenerEquiposEnBuenEstadoPorTipo(): Promise<Equipo[]> {
+    return this.equipoService.obtenerEquiposEnBuenEstadoPorTipo();
+  } 
   @Delete('/:id')
   eliminar(@Param('id') id: number) {
     return this.equipoService.eliminarEquipo(id);

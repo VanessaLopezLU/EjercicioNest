@@ -34,6 +34,6 @@ export class NovedadesService {
         return await this.NovedadesTabla.delete({id:id});
     }
     async ActualizarNovedad(Novedadesactualizar: UpdateNovedadesDto){
-        return await this.NovedadesTabla.update(Novedadesactualizar.id_Novedades,Novedadesactualizar)
+        return await this.NovedadesTabla.update(Novedadesactualizar.id,Novedadesactualizar)
     }
 }
