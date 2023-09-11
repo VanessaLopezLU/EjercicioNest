@@ -23,14 +23,9 @@ export class EquipoService {
     async obtenerEquipo() {
         return await this.equipoTabla.find({relations: {id_estado: true, id_tipo: true }});
     }
-    async obtenerEquiposEnBuenEstadoPorTipo() {
-        /* return  await this.equipoTabla
-        .createQueryBuilder('equipo')
-        .innerJoin('equipo.id_tipo', 'tipo')
-        .innerJoin('equipo.id_estado', 'estado')
-        .where('estado.estado = :estado', { estado: 'bueno' })
-        .getMany(); */
-         return await this.equipoTabla.find({where: {id_estado: {estado: 'bueno'},}, relations: {id_estado: true, id_tipo: true}})
+    async obtenerEstadoPorTipo() {
+      
+         return await this.equipoTabla.find({where: {id_estado: {id: 1 }}})
       }
    
     async validarQueNoExista(serialE:EquipoDto) {
