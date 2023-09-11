@@ -19,7 +19,7 @@ export class User {
     @Column()
     correo: string;
 
-    @Column({type: 'bigint'})
+    @Column({type: 'int'})
     telefono: number;
 
     @Column()
@@ -28,20 +28,16 @@ export class User {
     @Column()
     contrasena: string;
 
-    
-    
-
-    @ManyToOne( type => EstadoUsuario, estadousuario => estadousuario.user)
-    @JoinColumn({ name: 'id'})
-    id_estado: EstadoUsuario;
-
-
-    @OneToMany(type =>  Prestamo, prestamos => prestamos.user)
-    prestamos: Prestamo[]; 
-
     @ManyToOne(type => Roles, roles => roles.user)
     @JoinColumn({ name: 'id_rol'})
     id_rol: Roles;
+    
+    @ManyToOne( type => EstadoUsuario, estadousuario => estadousuario.user)
+    @JoinColumn({ name: 'id_estado'})
+    id_estado: EstadoUsuario;
+    
+    @OneToMany(type =>  Prestamo, prestamos => prestamos.user)
+    prestamos: Prestamo[];
    
 
 

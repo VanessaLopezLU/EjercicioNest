@@ -23,7 +23,7 @@ export class UserDto {
 
     @IsInt()
     @IsNotEmpty()
-    telefone: number;
+    telefono: number;
 
     @IsString()
     @IsNotEmpty()

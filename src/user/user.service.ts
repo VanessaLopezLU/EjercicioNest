@@ -22,18 +22,18 @@ export class UserService {constructor(
    }
 
    async ObtenerUser(){
-    return await this.Usertabla.find({relations: {id_rol: true}});
+    return await this.Usertabla.find({relations: {id_rol: true, id_estado: true}});
    }
 
    async ValidarQueNoExista(UsuarioC:UserDto){
-    return await this.Usertabla.findOne({ where: {cedula:UsuarioC.cedula}, relations: {id_rol: true}}).then((resp) =>{
+    return await this.Usertabla.findOne({ where: {cedula:UsuarioC.cedula}, relations: {id_rol: true, id_estado: true}}).then((resp) =>{
         if(resp == null){
             return true;
         }
         return false;
     });
    }
-   async eliminarUser(cedula:number){
+   async eliminarUser(cedula: number){
     return await this.Usertabla.delete({cedula:cedula});
    }
    async actualizarUser(UserActualizar:UserDto){
