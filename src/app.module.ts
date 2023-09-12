@@ -33,7 +33,7 @@ import 'dotenv/config';
       password: process.env.DB_PASS,
       database: process.env.DB_DATABASE,
       entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedade,Prestamo,EstadoUsuario],
-      synchronize: false,
+      synchronize: true,
       ssl: {
         rejectUnauthorized: false
       },
