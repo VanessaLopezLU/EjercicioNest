@@ -1,4 +1,4 @@
-import {  IsDateString, IsInt, IsNotEmpty, IsString,  } from "class-validator";
+import {  IsDate, IsInt, IsNotEmpty, IsString,  } from "class-validator";
 
 export class CreatePrestamoDto{
    
@@ -6,13 +6,13 @@ export class CreatePrestamoDto{
     @IsNotEmpty()
     ambiente: string;
 
-    @IsDateString()
+    @IsDate()
     @IsNotEmpty()
-    fecha_prestamo: string;
+    fecha_prestamo: Date;
 
-    @IsDateString()
+    @IsDate()
     @IsNotEmpty()
-    fecha_devolucion: string;
+    fecha_devolucion: Date;
 
     @IsInt()
     @IsNotEmpty()

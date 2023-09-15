@@ -15,10 +15,10 @@ export class  Prestamo{
     ambiente: string;
 
     @Column()
-    fecha_prestamo: string;
+    fecha_prestamo: Date;
 
     @Column()
-    fecha_devolucion: string;
+    fecha_devolucion: Date;
 
 
     @ManyToOne(() => User, (user) => user.prestamos)
