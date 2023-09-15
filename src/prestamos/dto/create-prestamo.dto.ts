@@ -16,6 +16,10 @@ export class CreatePrestamoDto{
 
     @IsInt()
     @IsNotEmpty()
+    cantidad: number; 
+
+    @IsInt()
+    @IsNotEmpty()
     cedula: number;
 
     @IsInt()

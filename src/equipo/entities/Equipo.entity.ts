@@ -13,6 +13,7 @@ export class Equipo {
 
     @Column()
     descripcion: string;
+    
 
 
     @ManyToOne(() => EstadoEquipo, Estadoequipo => Estadoequipo.equipo)

@@ -3,6 +3,7 @@ import { Equipo } from "src/equipo/entities/Equipo.entity";
 import { EstadoPrestamo } from "src/estadoprestamo/entities/estadoprestamo.entity";
 import { Novedade  } from "src/novedades/entities/novedades.entity";
 import { User } from "src/user/user.entity";
+import internal from "stream";
 import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 
@@ -19,6 +20,9 @@ export class  Prestamo{
 
     @Column()
     fecha_devolucion: Date;
+
+    @Column()
+    cantidad: number;
 
 
     @ManyToOne(() => User, (user) => user.prestamos)
