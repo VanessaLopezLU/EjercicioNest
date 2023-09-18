@@ -2,9 +2,7 @@ import {  IsDate, IsInt, IsNotEmpty, IsString,  } from "class-validator";
 
 export class CreatePrestamoDto{
    
-    @IsString()
-    @IsNotEmpty()
-    ambiente: string;
+   
 
     @IsDate()
     @IsNotEmpty()

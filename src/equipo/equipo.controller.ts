@@ -17,7 +17,7 @@ export class EquipoController {
     return this.equipoService.obtenerEquipo();
   }
   
-  @Get('/estado-tipo')
+  @Get('/estado')
   async obtenerEquiposEnBuenEstadoPorTipo(): Promise<Equipo[]> {
     return this.equipoService.obtenerEstadoPorTipo();
   } 

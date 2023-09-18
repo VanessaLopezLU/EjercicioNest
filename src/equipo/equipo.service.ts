@@ -25,7 +25,7 @@ export class EquipoService {
     }
     async obtenerEstadoPorTipo() {
       
-         return await this.equipoTabla.find({where: {id_estado: {id: 1 }}})
+         return await this.equipoTabla.find({where: {id_estado: {id:2 }}})
       }
    
     async validarQueNoExista(serialE:EquipoDto) {

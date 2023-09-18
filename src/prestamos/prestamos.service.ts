@@ -21,8 +21,8 @@ export class PrestamosService {
     async ObtenerPrestamo(){
         return await this.PrestamoTabla.find();
     }
-    async ValidarQueNoExista(ambineteP:CreatePrestamoDto){
-        return await this.PrestamoTabla.findOne({where:{ambiente:ambineteP.ambiente}}).then((resp)=>{
+    async ValidarQueNoExista(cantidadP:CreatePrestamoDto){
+        return await this.PrestamoTabla.findOne({where:{cantidad:cantidadP.cantidad}}).then((resp)=>{
             if(resp==null){
                 return true;
             }

@@ -13,9 +13,6 @@ export class  Prestamo{
     id: number;
 
     @Column()
-    ambiente: string;
-
-    @Column()
     fecha_prestamo: Date;
 
     @Column()
