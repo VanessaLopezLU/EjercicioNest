@@ -22,7 +22,7 @@ export class  Prestamo{
     cantidad: number;
 
 
-    @ManyToOne(() => User, (user) => user.prestamos)
+    @ManyToOne(() => User, (user) => user.prestamo)
     @JoinColumn({ name: 'cedula'})
     user: User[];
 
@@ -32,6 +32,10 @@ export class  Prestamo{
 
     @OneToMany(()=>Novedade,(novedades)=>novedades.id)
     novedades:Novedade[];
+
+    @ManyToOne(()=> Equipo, equipo => equipo.prestamo)
+    @JoinColumn({name: 'id_equipo'})
+    id_equipo: Equipo[];
 
     @ManyToMany(()=>Equipo)
     @JoinTable({name:'detallePrestamo'})

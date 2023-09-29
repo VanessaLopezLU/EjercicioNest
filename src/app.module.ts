@@ -31,9 +31,9 @@ import 'dotenv/config';
       port:parseInt( process.env.DB_PORT),
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
-      database: process.env.DB_DATABASE,
+      database:  "biblioteca",//process.env.DB_DATABASE,
       entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedade,Prestamo,EstadoUsuario],
-      synchronize: true,
+      synchronize: false,
       ssl: {
         rejectUnauthorized: false
       },

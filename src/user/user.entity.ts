@@ -36,8 +36,9 @@ export class User {
     @JoinColumn({ name: 'id_estado'})
     id_estado: EstadoUsuario;
     
-    @OneToMany(type =>  Prestamo, prestamos => prestamos.user)
+    @OneToMany(type =>  Prestamo, prestamo => prestamo.user)
     prestamos: Prestamo[];
+    prestamo: any;
    
 
 
