@@ -18,7 +18,7 @@ import { PrestamosModule } from './prestamos/prestamos.module';
 import { TipoEquipo } from './tipoequipo/entities/Tipo-Equipo.entity';
 import { Equipo} from './equipo/entities/Equipo.entity';
 
-import { Novedade } from './novedades/entities/novedades.entity';
+import { Novedad } from './novedades/entities/novedades.entity';
 import { Prestamo } from './prestamos/entities/prestamos.entity';
 import { EstadoUsuarioModule } from './estado_usuario/estado_usuario.module';
 import { EstadoUsuario } from './estado_usuario/entities/estadousuario.entity';
@@ -31,8 +31,8 @@ import 'dotenv/config';
       port:parseInt( process.env.DB_PORT),
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
-      database:  "biblioteca",//process.env.DB_DATABASE,
-      entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedade,Prestamo,EstadoUsuario],
+      database:  process.env.DB_DATABASE,
+      entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedad,Prestamo,EstadoUsuario],
       synchronize: false,
       ssl: {
         rejectUnauthorized: false

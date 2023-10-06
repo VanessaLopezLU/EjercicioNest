@@ -3,7 +3,7 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColum
 
 
 @Entity()
-export class Novedade{
+export class Novedad {
     @PrimaryGeneratedColumn()
     id: number;
     

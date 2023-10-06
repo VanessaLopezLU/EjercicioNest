@@ -4,13 +4,13 @@ import { CreateNovedadesDto} from 'src/novedades/dto/create-novedades.dto';
 import { UpdateNovedadesDto} from 'src/novedades/dto/update-novedades.dto';
 import { Prestamo } from 'src/prestamos/entities/prestamos.entity';
 import { Repository } from 'typeorm';
-import { Novedade } from './entities/novedades.entity';
+import { Novedad } from './entities/novedades.entity';
 
 @Injectable()
 export class NovedadesService {
     constructor(
-        @InjectRepository(Novedade)
-        private NovedadesTabla: Repository<Novedade>
+        @InjectRepository(Novedad)
+        private NovedadesTabla: Repository<Novedad>
     ){}
     async CrearNovedad(CreateNovedadespoDto: CreateNovedadesDto){
         let Noexiste = await this.ValidarQueNoExista(CreateNovedadespoDto);
