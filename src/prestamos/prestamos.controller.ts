@@ -15,6 +15,7 @@ export class PrestamosController {
   obtener() {
     return this.prestamosService.ObtenerPrestamo();
   }
+  
   @Delete('/:id')
   eliminar(@Param('id') id: number) {
     return this.prestamosService.EliminarPrestamo(id);

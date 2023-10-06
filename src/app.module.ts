@@ -22,6 +22,7 @@ import { Novedad } from './novedades/entities/novedades.entity';
 import { Prestamo } from './prestamos/entities/prestamos.entity';
 import { EstadoUsuarioModule } from './estado_usuario/estado_usuario.module';
 import { EstadoUsuario } from './estado_usuario/entities/estadousuario.entity';
+import { DetalleprestamoModule } from './detalleprestamo/detalleprestamo.module';
 import 'dotenv/config';
 @Module({
   imports: [
@@ -31,7 +32,7 @@ import 'dotenv/config';
       port:parseInt( process.env.DB_PORT),
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
-      database:  process.env.DB_DATABASE,
+      database:  "biblioteca",//process.env.DB_DATABASE,
       entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedad,Prestamo,EstadoUsuario],
       synchronize: false,
       ssl: {
@@ -40,7 +41,7 @@ import 'dotenv/config';
       autoLoadEntities: true,
       
         }),
-    UserModule,EstadoprestamoModule, EstadoEquipoModule, tipoequipoModule, RolesModule, EquipoModule, NovedadesModule, PrestamosModule, EstadoUsuarioModule,
+    UserModule,EstadoprestamoModule, EstadoEquipoModule, tipoequipoModule, RolesModule, EquipoModule, NovedadesModule, PrestamosModule, EstadoUsuarioModule, DetalleprestamoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

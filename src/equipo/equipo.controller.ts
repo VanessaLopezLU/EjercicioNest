@@ -17,9 +17,9 @@ export class EquipoController {
     return this.equipoService.obtenerEquipo();
   }
   
-  @Get('/estado')
-  async obtenerEquiposEnBuenEstadoPorTipo(): Promise<Equipo[]> {
-    return this.equipoService.obtenerEstadoPorTipo();
+  @Get('/Estado')
+  async obtenerEstadoPorTipo(): Promise<Equipo[]> {
+    return this.equipoService.obtenerEstado();
   } 
   @Delete('/:id')
   eliminar(@Param('id') id: number) {
