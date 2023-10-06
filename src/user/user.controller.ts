@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDto } from './dto/User.dto';
+import { LoginDto } from './dto/login.dto';
 
 @Controller('user')
 export class UserController {
@@ -14,6 +15,11 @@ export class UserController {
  obtener() {
    return this.userService.ObtenerUser();
  }
+ @Post('login')
+ login(@Body() loginDto: LoginDto){
+  return this.userService.login(loginDto);
+ }
+
  @Delete('/:cedula')
  eliminar(@Param('cedula') cedula: number) {
    return this.userService.eliminarUser(cedula);

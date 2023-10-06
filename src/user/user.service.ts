@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { Repository } from 'typeorm';
 import { UserDto } from './dto/User.dto';
+import { LoginDto } from './dto/login.dto';
 
 
 
@@ -23,6 +24,12 @@ export class UserService {constructor(
 
    async ObtenerUser(){
     return await this.Usertabla.find({relations: {id_rol: true, id_estado: true}});
+   }
+   async login(loginDto: LoginDto){
+    const userBD = await this.Usertabla.findOneBy({cedula: loginDto.cedula, contrasena: loginDto.contrasena});
+     if (userBD){
+        return true;
+     } return false;
    }
 
    async ValidarQueNoExista(UsuarioC:UserDto){
