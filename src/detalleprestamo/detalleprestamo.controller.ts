@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { DetalleprestamoService } from './detalleprestamo.service';
 import { CreateDetallePrestamoDto } from './dto/create-detalleprestamo.dto';
 import { UpdateDetallePrestamoDto } from './dto/update-detalleprestamo.dto';
@@ -7,28 +7,23 @@ import { UpdateDetallePrestamoDto } from './dto/update-detalleprestamo.dto';
 export class DetalleprestamoController {
   constructor(private readonly detalleprestamoService: DetalleprestamoService) {}
 
-  @Post()
-  create(@Body() createDetalleprestamoDto: CreateDetallePrestamoDto) {
-    return this.detalleprestamoService.create(createDetalleprestamoDto);
+  @Post('/crear')
+  crear(@Body() createDetalleprestamoDto: CreateDetallePrestamoDto) {
+    return this.detalleprestamoService.crearPrestamo(createDetalleprestamoDto);
   }
 
-  @Get()
-  findAll() {
-    return this.detalleprestamoService.findAll();
-  }
+  /*@Get()
+  obtenerDatos() {
+    return this.detalleprestamoService.obtener();
+  }*/
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.detalleprestamoService.findOne(+id);
+  @Delete('/:id')
+  eliminar(@Param('id') id: number) {
+    return this.detalleprestamoService.eliminarPrestamo(id);
   }
+  @Put('/actualizar') 
+    actualizar(@Body() updateDetallePrestamoDto: UpdateDetallePrestamoDto){
+      return this.detalleprestamoService.actualizarPrestamo(updateDetallePrestamoDto);
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateDetalleprestamoDto: UpdateDetallePrestamoDto) {
-    return this.detalleprestamoService.update(+id, updateDetalleprestamoDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.detalleprestamoService.remove(+id);
-  }
+  } 
 }

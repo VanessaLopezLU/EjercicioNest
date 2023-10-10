@@ -6,7 +6,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 export class DetallePrestamo{
     @PrimaryGeneratedColumn()
     id : number;
-
+    
     @ManyToOne(()=>Equipo,(equipo)=>equipo.id)
     equipo : Equipo;
 
@@ -16,6 +16,6 @@ export class DetallePrestamo{
     @Column()
     fecha_devolucion : Date;
 
-    @ManyToOne(()=>Prestamo,(prestamos)=>prestamos.id)
+    @ManyToOne(()=>Prestamo,(prestamos)=>prestamos.detalleprestamo)
     prestamo:Prestamo;
 }

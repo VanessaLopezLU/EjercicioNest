@@ -24,6 +24,7 @@ import { EstadoUsuarioModule } from './estado_usuario/estado_usuario.module';
 import { EstadoUsuario } from './estado_usuario/entities/estadousuario.entity';
 import { DetalleprestamoModule } from './detalleprestamo/detalleprestamo.module';
 import 'dotenv/config';
+import { DetallePrestamo } from './detalleprestamo/entities/detalleprestamo.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -32,12 +33,12 @@ import 'dotenv/config';
       port:parseInt( process.env.DB_PORT),
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
-      database:  "biblioteca",//process.env.DB_DATABASE,
-      entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedad,Prestamo,EstadoUsuario],
+      database: process.env.DB_DATABASE,
+      entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedad,Prestamo,EstadoUsuario,DetallePrestamo],
       synchronize: false,
-      ssl: {
+      /* ssl: {
         rejectUnauthorized: false
-      },
+      }, */
       autoLoadEntities: true,
       
         }),

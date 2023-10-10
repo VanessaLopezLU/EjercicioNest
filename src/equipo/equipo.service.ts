@@ -26,6 +26,9 @@ export class EquipoService {
     async obtenerEstado() {
       return await this.equipoTabla.find({where: {id_estado: {id:1 }}})
     }
+    obtenerBuenos(tipo:number, estado:number){
+        return this.equipoTabla.find({where:{id_tipo:{id:tipo}, id_estado:{id:estado}},relations:{id_tipo:true, id_estado:true}});
+    }
    
     async validarQueNoExista(serialE:EquipoDto) {
         return await this.equipoTabla.findOne({where: {serial:serialE.serial}, relations:  {id_estado: true, id_tipo: true } }).then((resp) =>{

@@ -11,7 +11,7 @@ export class EstadoPrestamo {
     estado:string;
 
 
-    @OneToMany(()=>Prestamo,(prestamo)=>prestamo.estadoprestamo)
+    @OneToMany(()=>Prestamo,(prestamo)=>prestamo.id_estado)
     prestamo:Prestamo[];
 
 }

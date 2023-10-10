@@ -12,14 +12,16 @@ export class Novedad {
     descripcion: string;
 
     @Column()
-    fechaNovedad: string;
+    fecha_novedad: Date;
 
     @Column()
-    tipoNovedad: string;
+    tipo_novedad: string;
+    @Column()
+    estado_novedad: string;
 
-    @ManyToOne(()=>Prestamo,prestamo=>prestamo.novedades)
+   /* @ManyToOne(()=>Prestamo,prestamo=>prestamo.novedades)
     @JoinColumn({name:'id_prestamo'})
-    prestamo:Prestamo[];
+    prestamo:Prestamo[];*/
 
 
 

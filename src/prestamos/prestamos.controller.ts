@@ -2,13 +2,14 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { PrestamosService } from './prestamos.service';
 import { CreatePrestamoDto } from './dto/create-prestamo.dto';
 import { UpdatePrestamoDto } from './dto/update-prestamo.dto';
+import { Prestamo } from './entities/prestamos.entity';
 
 @Controller('prestamo')
 export class PrestamosController {
   constructor(private readonly prestamosService: PrestamosService) {}
   @Post('/crear')
-  crear(@Body() CreateEstadoEquipoDto: CreatePrestamoDto) {
-    return this.prestamosService.Crearprestamo(CreateEstadoEquipoDto);
+  crear(@Body() prestamocrear: Prestamo) {
+    return this.prestamosService.crearprestamo(prestamocrear);
   }
 
   @Get('')
@@ -20,8 +21,8 @@ export class PrestamosController {
   eliminar(@Param('id') id: number) {
     return this.prestamosService.EliminarPrestamo(id);
   }
-  @Put('/actualizar') 
+  /*@Put('/actualizar') 
     actualizar(@Body() UpdatePrestamoDto: UpdatePrestamoDto){
       return this.prestamosService.ActualizarPrestamo(UpdatePrestamoDto);
-  }
+  }*/
 }

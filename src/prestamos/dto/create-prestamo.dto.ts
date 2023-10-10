@@ -1,20 +1,18 @@
-import {  IsDate, IsInt, IsNotEmpty, IsString,  } from "class-validator";
+import {  IsArray, IsDate, IsDateString, IsInt, IsNotEmpty, IsString,  } from "class-validator";
 
 export class CreatePrestamoDto{
-   
-   
 
-    @IsDate()
+    @IsDateString()
     @IsNotEmpty()
-    fecha_prestamo: Date;
+    fecha_prestamo: string;
 
-    @IsDate()
+    @IsDateString()
     @IsNotEmpty()
-    fecha_devolucion: Date;
+    fecha_devolucion: string;
 
-    @IsInt()
+   /* @IsInt()
     @IsNotEmpty()
-    cantidad: number; 
+    cantidad: number; */
 
     @IsInt()
     @IsNotEmpty()
@@ -22,9 +20,11 @@ export class CreatePrestamoDto{
 
     @IsInt()
     @IsNotEmpty()
-    id_estadoprestamo:number;
+    id_estado :number[];
     
-    @IsInt()
+    @IsArray()
     @IsNotEmpty()
-    equipos : number[];
-}
+    detalleprestamo :[
+
+    ];
+}     
