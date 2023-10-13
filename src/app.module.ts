@@ -35,7 +35,7 @@ import { DetallePrestamo } from './detalleprestamo/entities/detalleprestamo.enti
       password: process.env.DB_PASS,
       database: process.env.DB_DATABASE,
       entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedad,Prestamo,EstadoUsuario,DetallePrestamo],
-      synchronize: false,
+      synchronize: true,
       /* ssl: {
         rejectUnauthorized: false
       }, */

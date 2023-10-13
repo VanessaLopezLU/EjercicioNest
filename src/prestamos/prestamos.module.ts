@@ -9,11 +9,12 @@ import { DetallePrestamo } from 'src/detalleprestamo/entities/detalleprestamo.en
 import { EquipoModule } from 'src/equipo/equipo.module';
 import { DetalleprestamoModule } from 'src/detalleprestamo/detalleprestamo.module';
 import { EquipoService } from 'src/equipo/equipo.service';
+import { DetalleprestamoService } from 'src/detalleprestamo/detalleprestamo.service';
 
 @Module({
   imports : [TypeOrmModule.forFeature([Prestamo]),EquipoModule,DetalleprestamoModule],
   controllers: [PrestamosController],
-  providers: [PrestamosService,EquipoService],
+  providers: [PrestamosService,EquipoService,DetalleprestamoService],
   exports : [TypeOrmModule]
 })
 export class PrestamosModule {}

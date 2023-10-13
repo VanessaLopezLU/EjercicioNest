@@ -8,7 +8,7 @@ import { Prestamo } from './entities/prestamos.entity';
 export class PrestamosController {
   constructor(private readonly prestamosService: PrestamosService) {}
   @Post('/crear')
-  crear(@Body() prestamocrear: Prestamo) {
+  crear(@Body() prestamocrear: CreatePrestamoDto) {
     return this.prestamosService.crearprestamo(prestamocrear);
   }
 
