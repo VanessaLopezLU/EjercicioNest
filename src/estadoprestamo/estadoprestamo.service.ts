@@ -37,7 +37,7 @@ export class EstadoprestamoService {
     return await this.estadoprestamoTabla.delete({id: id});
   }
 
-  async actualizarEstado(estadoactualizar : UpdateEstadoprestamoDto){
+  async actualizarEstado(estadoactualizar:any){
     return  await this.estadoprestamoTabla.update( estadoactualizar.id,estadoactualizar);
   }
 

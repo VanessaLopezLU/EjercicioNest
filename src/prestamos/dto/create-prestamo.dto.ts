@@ -20,7 +20,7 @@ export class CreatePrestamoDto{
 
     @IsInt()
     @IsNotEmpty()
-    id_estado :number[];
+    idestado :number;
     
     @IsArray()
     @IsNotEmpty()

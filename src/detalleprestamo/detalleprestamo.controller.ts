@@ -21,7 +21,7 @@ export class DetalleprestamoController {
   eliminar(@Param('id') id: number) {
     return this.detalleprestamoService.eliminarPrestamo(id);
   }
-  @Put('/actualizar') 
+  @Put('/actualizar/:id') 
     actualizar(@Body() updateDetallePrestamoDto: UpdateDetallePrestamoDto){
       return this.detalleprestamoService.actualizarPrestamo(updateDetallePrestamoDto);
 

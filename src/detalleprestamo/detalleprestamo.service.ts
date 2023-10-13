@@ -22,13 +22,11 @@ export class DetalleprestamoService {
   async obtener(id_equipo, fecha_prestamo, fecha_devolucion){
     console.log('ob',id_equipo, fecha_prestamo, fecha_devolucion);
    const r=await this.dataSource.getRepository(DetallePrestamo).findBy({
-        fecha_prestamo:MoreThanOrEqual(fecha_prestamo),
-        fecha_devolucion:LessThanOrEqual(fecha_devolucion),
+        fecha_prestamo:LessThanOrEqual(fecha_devolucion),
+        fecha_devolucion:MoreThanOrEqual(fecha_prestamo),
         equipo:{id:Equal(id_equipo)}
     });
     return r;
-    console.log(r);
-    
 }
 async validarQueNoExista(detalleprestamo) {
   return await this.detalleprestamoTabla.find({where : {fecha_prestamo : detalleprestamo.fecha_prestamo}}).then((resp) => {
@@ -42,7 +40,7 @@ async eliminarPrestamo(id : number){
    
     return this.detalleprestamoTabla.delete({id : id})
 }
-async actualizarPrestamo(detalleprestamoActualizar){
+async actualizarPrestamo(detalleprestamoActualizar: UpdateDetallePrestamoDto){
   return await this.detalleprestamoTabla.update(detalleprestamoActualizar.id,detalleprestamoActualizar);
 }
   
