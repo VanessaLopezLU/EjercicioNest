@@ -5,8 +5,8 @@ import { Prestamo } from 'src/prestamos/entities/prestamos.entity';
 export class CreateDetallePrestamoDto {
 
     constructor(id_prestamo,serial,fecha_prestamo,fecha_devolucion){
-        this.id_prestamo=id_prestamo;
-        this.id_equipo=serial;
+        this.prestamo=id_prestamo;
+        this.equipo=serial;
         this.fecha_prestamo=fecha_prestamo;
         this.fecha_devolucion=fecha_devolucion
 
@@ -14,12 +14,12 @@ export class CreateDetallePrestamoDto {
 
     @IsInt()
     @IsNotEmpty()
-    id_prestamo: Prestamo;
+    prestamo: Prestamo;
 
 
     @IsInt()
     @IsNotEmpty() 
-    id_equipo: Equipo;
+    equipo: Equipo;
 
     @IsDate()
     @IsNotEmpty()

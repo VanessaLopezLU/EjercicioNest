@@ -25,7 +25,7 @@ export class  Prestamo{
     user: User[];
 
     @ManyToOne(()=> EstadoPrestamo, (estadoprestamo) => estadoprestamo.prestamo)
-    idestado: EstadoPrestamo;
+    id_estado: EstadoPrestamo;
 
     /*@OneToMany(()=>Novedad,(novedad)=>novedad.id)
     novedades:Novedad[];*/

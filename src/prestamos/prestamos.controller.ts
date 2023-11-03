@@ -16,13 +16,14 @@ export class PrestamosController {
   obtener() {
     return this.prestamosService.ObtenerPrestamo();
   }
-  
+  @Get('/obtenerPorCedula/:cedula')
+    obtenerPorCedula(@Param('cedula') cedula:number ){
+        return this.prestamosService.obtenerPorCedula(cedula);
+  }
+
   @Delete('/:id')
   eliminar(@Param('id') id: number) {
-    return this.prestamosService.EliminarPrestamo(id);
+    return this.prestamosService.eliminarPrestamo(id);
   }
-  /*@Put('/actualizar') 
-    actualizar(@Body() UpdatePrestamoDto: UpdatePrestamoDto){
-      return this.prestamosService.ActualizarPrestamo(UpdatePrestamoDto);
-  }*/
+  
 }

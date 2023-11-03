@@ -10,6 +10,9 @@ import { CreateDetallePrestamoDto } from 'src/detalleprestamo/dto/create-detalle
 
 @Injectable()
 export class PrestamosService {
+  ObtenerPrestamo() {
+    throw new Error('Method not implemented.');
+  }
     constructor(
         @Inject(EquipoService) private equipoService:EquipoService,
         @Inject(DetalleprestamoService) private detalleService:DetalleprestamoService,
@@ -20,45 +23,57 @@ export class PrestamosService {
     
     async crearprestamo(prestamo:any) {
         var r= await this.PrestamoTabla.insert(prestamo);
-       /* var prestar=[];
-        for(let data of prestamo.detalleprestamo){
+        var prestar=[];
+        for(var data of prestamo.detalleprestamo){
             
            let equipo= await this.equipoService.obtenerBuenos(data.id_tipo,1)
            let r2;
-           let contador=1;
+           var contador=0;
            for(let d of equipo){
             if (contador<=data.cantidad){
-                r2=await this.detalleService.obtener(d.id,prestamo.fecha_prestamo,prestamo.fecha_devolucion);
+                r2=await this.detalleService.obtener(d.serial,prestamo.fecha_prestamo,prestamo.fecha_devolucion);
                 if(r2.length ==0){
                     prestar.push(d);
                     contador++;
                 }
             }else{
                 break;
-            }
-
-           
-            
+            }  
            }
           }
-          let id=r.identifiers[0].id;
+          
+
+          var id=r.identifiers[0].id;
+          if(prestar.length==0){
+            this.eliminarPrestamo(id);
+            return "vacio";
+          }
           for (let data of prestar){
             let detalleprestamo= new CreateDetallePrestamoDto(id,data.id,prestamo.fecha_prestamo,prestamo.fecha_devolucion)
              var r=await this.detalleprestamoTabla.insert(detalleprestamo);
           }
+          if(contador<data.cantidad){
+            let numero=contador;
+            return ({numero,id});
+        }else{
+            return r;
+        }  
 
-        return r;
-        */
+    }
+     async obtenerPorCedula(cedula) {
+        return await this.PrestamoTabla.createQueryBuilder("prestamo")
+            .innerJoinAndSelect("prestamo.user", "user")
+            .innerJoinAndSelect("prestamo.id_estado", "id_estado")
+            .where("user.cedula = :cedula", { cedula: cedula })
+            .getMany();
+    }
+    
 
+    async eliminarPrestamo(id: number) {
+        const prestamoAEliminar = await this.PrestamoTabla.delete(id);
+        if (!prestamoAEliminar) {
+            throw new Error('El préstamo no existe.');
+        }
+        return this.PrestamoTabla.delete(id);
     }
-    async ObtenerPrestamo(){
-        return await this.PrestamoTabla.find();
-    }
-  
-    async EliminarPrestamo(id:number){
-        return await this.PrestamoTabla.delete({id:id});
-    }
-    /*async ActualizarPrestamo(Prestamoactualizar: UpdatePrestamoDto){
-        return await this.PrestamoTabla.update(Prestamoactualizar.id,Prestamoactualizar)
-    }*/
 }

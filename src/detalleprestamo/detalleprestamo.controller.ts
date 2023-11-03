@@ -5,25 +5,23 @@ import { UpdateDetallePrestamoDto } from './dto/update-detalleprestamo.dto';
 
 @Controller('detalle-prestamo')
 export class DetalleprestamoController {
-  constructor(private readonly detalleprestamoService: DetalleprestamoService) {}
+  constructor(private readonly detalleprestamoService: DetalleprestamoService) { }
 
   @Post('/crear')
   crear(@Body() createDetalleprestamoDto: CreateDetallePrestamoDto) {
     return this.detalleprestamoService.crearPrestamo(createDetalleprestamoDto);
   }
-
-  /*@Get()
-  obtenerDatos() {
-    return this.detalleprestamoService.obtener();
-  }*/
-
+  @Get('')
+  obtener() {
+    return this.detalleprestamoService.obtenerTodo();
+  }
+  @Get('/:id')
+  obtenerPorId(@Param('id') id: number) {
+    return this.detalleprestamoService.obtenerPorId(id);
+  }
   @Delete('/:id')
   eliminar(@Param('id') id: number) {
     return this.detalleprestamoService.eliminarPrestamo(id);
   }
-  @Put('/actualizar/:id') 
-    actualizar(@Body() updateDetallePrestamoDto: UpdateDetallePrestamoDto){
-      return this.detalleprestamoService.actualizarPrestamo(updateDetallePrestamoDto);
 
-  } 
 }

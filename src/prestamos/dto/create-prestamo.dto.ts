@@ -10,17 +10,13 @@ export class CreatePrestamoDto{
     @IsNotEmpty()
     fecha_devolucion: string;
 
-   /* @IsInt()
-    @IsNotEmpty()
-    cantidad: number; */
-
     @IsInt()
     @IsNotEmpty()
     cedula: number;
 
     @IsInt()
     @IsNotEmpty()
-    idestado :number;
+    id_estado :number;
     
     @IsArray()
     @IsNotEmpty()

@@ -12,11 +12,7 @@ export class DetalleprestamoService {
     private detalleprestamoTabla: Repository<DetallePrestamo>
     ) { } 
     async crearPrestamo(detalleprestamo: CreateDetallePrestamoDto) {
-      let Noexiste = await this.validarQueNoExista(detalleprestamo);
-      if (Noexiste) {
-          return await this.detalleprestamoTabla.insert(detalleprestamo)
-      }
-      return 'Ya Existe'
+          return await this.detalleprestamoTabla.insert(detalleprestamo);
   }
  
   async obtener(id_equipo, fecha_prestamo, fecha_devolucion){
@@ -28,20 +24,22 @@ export class DetalleprestamoService {
     });
     return r;
 }
-async validarQueNoExista(detalleprestamo) {
-  return await this.detalleprestamoTabla.find({where : {fecha_prestamo : detalleprestamo.fecha_prestamo}}).then((resp) => {
-    if (resp == null) {
-      return true;
-    }
-    return false;
-  });
+async obtenerTodo(){
+  return await this.detalleprestamoTabla.find({relations:{equipo:true, prestamo:true}});
 }
+async obtenerPorId(id){
+   return await this.detalleprestamoTabla.createQueryBuilder("detalle")
+   .innerJoinAndSelect("detalle.equipo", "equipo")
+   .where("detalle.prestamo = :id", { id: id })
+   .getMany();
+}
+
 async eliminarPrestamo(id : number){
-   
-    return this.detalleprestamoTabla.delete({id : id})
-}
-async actualizarPrestamo(detalleprestamoActualizar: UpdateDetallePrestamoDto){
-  return await this.detalleprestamoTabla.update(detalleprestamoActualizar.id,detalleprestamoActualizar);
-}
+  const Eliminar = await this.detalleprestamoTabla.delete(id);
+        if(!Eliminar){
+            throw await Error('el prestamo no existe');
+        }
+    return this.detalleprestamoTabla.delete(id);
   
+}
 }

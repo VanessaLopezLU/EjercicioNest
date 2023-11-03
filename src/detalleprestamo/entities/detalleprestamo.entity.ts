@@ -7,7 +7,7 @@ export class DetallePrestamo{
     @PrimaryGeneratedColumn()
     id : number;
     
-    @ManyToOne(()=>Equipo,(equipo)=>equipo.id)
+    @ManyToOne(()=>Equipo,(equipo)=>equipo.equipo)
     equipo : Equipo;
 
     @Column()
