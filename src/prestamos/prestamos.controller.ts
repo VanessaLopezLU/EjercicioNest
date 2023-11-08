@@ -13,8 +13,8 @@ export class PrestamosController {
   }
 
   @Get('')
-  obtener() {
-    return this.prestamosService.ObtenerPrestamo();
+  obtenerTodo_prestamo() {
+    return this.prestamosService.obtener();
   }
   @Get('/obtenerPorCedula/:cedula')
     obtenerPorCedula(@Param('cedula') cedula:number ){
