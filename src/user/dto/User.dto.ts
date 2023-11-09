@@ -1,7 +1,7 @@
 
 import { IsNotEmpty, IsInt, IsString } from "class-validator";
 import { EstadoUsuario } from "src/estado_usuario/entities/estadousuario.entity";
-import { Roles } from "src/roles/entities/Roles.entity";
+import { Rol } from "src/roles/entities/Roles.entity";
 
 export class UserDto {
 
@@ -35,7 +35,7 @@ export class UserDto {
 
     @IsInt()
     @IsNotEmpty()
-    id_rol: Roles;
+    id_rol: Rol;
 
     @IsInt()
     @IsNotEmpty()

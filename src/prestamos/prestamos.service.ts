@@ -61,9 +61,10 @@ export class PrestamosService {
 
     }
     async obtener() {
-        return await this.PrestamoTabla.find({relations:{user:true, id_estado:true}});
+        return await this.PrestamoTabla.find({relations:{cedula:true, id_estado:true}});
     }
-     async obtenerPorCedula(cedula) {
+
+    async obtenerPorCedula(cedula) {
         return await this.PrestamoTabla.createQueryBuilder("prestamo")
             .innerJoinAndSelect("prestamo.user", "user")
             .innerJoinAndSelect("prestamo.id_estado", "id_estado")

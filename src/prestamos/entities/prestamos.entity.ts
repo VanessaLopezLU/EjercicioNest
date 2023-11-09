@@ -20,9 +20,9 @@ export class  Prestamo{
     cantidad: number;*/
 
 
-    @ManyToOne(() => User, (user) => user.prestamo)
-    @JoinColumn({ name: 'cedula'})
-    user: User[];
+    @ManyToOne(() => User, (cedula) => cedula.prestamo)
+    @JoinColumn({ name: 'cedula'}) 
+    cedula: User[];
 
     @ManyToOne(()=> EstadoPrestamo, (estadoprestamo) => estadoprestamo.prestamo)
     id_estado: EstadoPrestamo;

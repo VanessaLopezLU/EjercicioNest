@@ -2,7 +2,7 @@ import { User } from "src/user/user.entity";
 import { Entity,Column,PrimaryColumn, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from "typeorm";
 
 @Entity()
-export class Roles {
+export class Rol{
 
     @PrimaryGeneratedColumn()
     id:number;

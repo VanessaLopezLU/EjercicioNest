@@ -10,7 +10,7 @@ import { EstadoEquipoModule } from './estado-equipo/estado-equipo.module';
 import { EstadoEquipo } from './estado-equipo/entities/estado-equipo.entity';
 import { tipoequipoModule } from './tipoequipo/tipoequipo.module';
 import { RolesModule } from './roles/roles.module';
-import { Roles } from './roles/entities/Roles.entity';
+import { Rol } from './roles/entities/Roles.entity';
 import { EquipoModule } from './equipo/equipo.module';
 
 import { NovedadesModule } from './novedades/novedades.module';
@@ -34,8 +34,8 @@ import { DetallePrestamo } from './detalleprestamo/entities/detalleprestamo.enti
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_DATABASE,
-      entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Roles,Equipo,Novedad,Prestamo,EstadoUsuario,DetallePrestamo],
-      synchronize: true,
+      entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Rol,Equipo,Novedad,Prestamo,EstadoUsuario,DetallePrestamo],
+      synchronize: false,
        ssl: {
         rejectUnauthorized: false
       }, 

@@ -13,7 +13,7 @@ export class PrestamosController {
   }
 
   @Get('')
-  obtenerTodo_prestamo() {
+  obtenerprestamo() {
     return this.prestamosService.obtener();
   }
   @Get('/obtenerPorCedula/:cedula')

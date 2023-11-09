@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Roles } from './entities/Roles.entity';
+import { Rol } from './entities/Roles.entity';
 import { Repository } from 'typeorm';
 import { CreateRolesDto } from './dto/create-roles.dto';
 import { UpdateRolesDto } from './dto/update-roles.dto';
 
 @Injectable()
 export class RolesService {constructor(
-    @InjectRepository(Roles)
-    private RolesTabla: Repository<Roles>
+    @InjectRepository(Rol)
+    private RolesTabla: Repository<Rol>
   ) { }
 
   async crearRoles(CreateRolesDto: CreateRolesDto) {
