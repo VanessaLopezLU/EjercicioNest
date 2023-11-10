@@ -20,11 +20,15 @@ export class  Prestamo{
     cantidad: number;*/
 
 
-    @ManyToOne(() => User, (cedula) => cedula.prestamo)
+    @ManyToOne(() => User, (cedula) => cedula.prestamo,{
+        eager:true
+    })
     @JoinColumn({ name: 'cedula'}) 
     cedula: User[];
 
-    @ManyToOne(()=> EstadoPrestamo, (estadoprestamo) => estadoprestamo.prestamo)
+    @ManyToOne(()=> EstadoPrestamo, (estadoprestamo) => estadoprestamo.prestamo,{
+        eager:true
+    })
     id_estado: EstadoPrestamo;
 
     /*@OneToMany(()=>Novedad,(novedad)=>novedad.id)
@@ -34,16 +38,8 @@ export class  Prestamo{
     @JoinColumn({name: 'id_equipo'})
     id_equipo: Equipo[];*/
 
-    @OneToMany(()=>DetallePrestamo,(detalleprestamo)=>detalleprestamo.prestamo)
+    @OneToMany(()=>DetallePrestamo,(detalleprestamo)=>detalleprestamo.prestamo,{
+        eager:true
+    })
     detalleprestamo :DetallePrestamo; 
-
-
-   
-
-
-
-
-    
-
-
 }

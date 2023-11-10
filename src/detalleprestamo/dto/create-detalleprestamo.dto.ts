@@ -30,3 +30,11 @@ export class CreateDetallePrestamoDto {
     fecha_devolucion : Date;
 }
 
+export class fechaValidacion {
+    id: number;
+
+    fecha_prestamo : Date;
+
+    fecha_devolucion: Date;
+}
+

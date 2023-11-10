@@ -22,7 +22,9 @@ export class Equipo {
     @JoinColumn({ name: 'id_estado'})
     id_estado: EstadoEquipo[];
 
-    @ManyToOne(() => TipoEquipo, (tipoequipo) => tipoequipo.equipo)
+    @ManyToOne(() => TipoEquipo, (tipoequipo) => tipoequipo.equipo,{
+        eager: true
+    })
     @JoinColumn({ name: 'id_tipo'})
     id_tipo: TipoEquipo[];
 

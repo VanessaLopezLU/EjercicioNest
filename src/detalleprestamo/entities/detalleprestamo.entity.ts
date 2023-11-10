@@ -7,7 +7,9 @@ export class DetallePrestamo{
     @PrimaryGeneratedColumn()
     id : number;
     
-    @ManyToOne(()=>Equipo,(equipo)=>equipo.equipo)
+    @ManyToOne(()=>Equipo,(equipo)=>equipo.equipo,{
+        eager: true
+    })
     equipo : Equipo;
 
     @Column()
