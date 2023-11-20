@@ -36,9 +36,9 @@ import { DetallePrestamo } from './detalleprestamo/entities/detalleprestamo.enti
       database: process.env.DB_DATABASE,
       entities: [User,EstadoPrestamo,EstadoEquipo,TipoEquipo,Rol,Equipo,Novedad,Prestamo,EstadoUsuario,DetallePrestamo],
       synchronize: false,
-       ssl: {
+      /* ssl: {
         rejectUnauthorized: false
-      }, 
+      }, */
       autoLoadEntities: true,
       
         }),

@@ -26,10 +26,8 @@ export class UserService {constructor(
     return await this.Usertabla.find({relations: {id_rol: true, id_estado: true}});
    }
    async login(loginDto: LoginDto){
-    const userBD = await this.Usertabla.findOneBy({cedula: loginDto.cedula, contrasena: loginDto.contrasena});
-     if (userBD){
-        return true;
-     } return false;
+    return await this.Usertabla.find({where:{cedula: loginDto.cedula, contrasena: loginDto.contrasena}});
+    
    }
 
    async ValidarQueNoExista(UsuarioC:UserDto){

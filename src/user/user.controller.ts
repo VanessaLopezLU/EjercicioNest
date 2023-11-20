@@ -15,7 +15,7 @@ export class UserController {
  obtener() {
    return this.userService.ObtenerUser();
  }
- @Post('login')
+ @Post('/login')
  login(@Body() loginDto: LoginDto){
   return this.userService.login(loginDto);
  }
