@@ -77,7 +77,7 @@ export class PrestamosService {
                         fecha_prestamo: prestamo.fecha_prestamo,
                         fecha_devolucion: prestamo.fecha_devolucion
                        });
-                       console.log(responsePrestamo)
+                
                         if (responsePrestamo.length == 0) {
                             equiposPrestar.push(equipoB);
                             contador++;
@@ -131,11 +131,12 @@ export class PrestamosService {
     }
 
     async obtenerPorCedula(cedula) {
-        return await this.PrestamoTabla.createQueryBuilder("prestamo")
-            .innerJoinAndSelect("prestamo.user", "user")
+        return await this.PrestamoTabla.find({where:{cedula:cedula},relations:{id_estado:true, cedula:true, detalleprestamo:true}});
+        /*return await this.PrestamoTabla.createQueryBuilder("prestamo")
+            .innerJoinAndSelect("prestamo.cedula", "user")
             .innerJoinAndSelect("prestamo.id_estado", "id_estado")
-            .where("user.cedula = :cedula", { cedula: cedula })
-            .getMany();
+            .where( { cedula: cedula })
+            .getMany();}*/
     }
 
 

@@ -28,7 +28,7 @@ export class  Prestamo{
 
     @ManyToOne(()=> EstadoPrestamo, (estadoprestamo) => estadoprestamo.prestamo,{
         eager:true
-    })
+    }) 
     id_estado: EstadoPrestamo;
 
     /*@OneToMany(()=>Novedad,(novedad)=>novedad.id)
