@@ -28,9 +28,7 @@ export class Equipo {
     @JoinColumn({ name: 'id_tipo'})
     id_tipo: TipoEquipo[];
 
-    @OneToMany(()=>DetallePrestamo,(detalleprestamo)=>detalleprestamo.equipo,{
-        eager: true
-    })
+    @OneToMany(()=>DetallePrestamo,(detalleprestamo)=>detalleprestamo.equipo)
     equipo:Equipo[]; 
    
 

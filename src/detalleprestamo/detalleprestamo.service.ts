@@ -60,11 +60,11 @@ export class DetalleprestamoService {
     });
   }
   async obtenerPorId(id) {
-    return await this.detalleprestamoTabla
-      .createQueryBuilder('detalle')
+    return await this.detalleprestamoTabla.find({where:{prestamo:{id:id}}})
+     /* .createQueryBuilder('detalle')
       .innerJoinAndSelect('detalle.equipo', 'equipo')
       .where('detalle.prestamo = :id', { id: id })
-      .getMany();
+      .getMany();*/
   }
 
   async eliminarPrestamo(id: number) {
