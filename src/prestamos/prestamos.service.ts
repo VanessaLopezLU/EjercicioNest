@@ -97,6 +97,7 @@ export class PrestamosService {
             // Prestamos
             let respEquiposPrestados = [];
             for (let equipo of equiposPrestar) {
+              
                 let detalleprestamo = new CreateDetallePrestamoDto(idPrestamo, equipo.id, prestamo.fecha_prestamo, prestamo.fecha_devolucion)
                  respEquiposPrestados.push(await this.detalleprestamoTabla.insert(detalleprestamo));
             }
@@ -138,6 +139,15 @@ export class PrestamosService {
             .where( { cedula: cedula })
             .getMany();}*/
     }
+    async obtenerPorCedulaPrestamo(cedula) {
+            return await this.PrestamoTabla.find({
+                where: { cedula: cedula, id_estado: { id:2} },
+                relations: { id_estado: true, cedula: true, detalleprestamo: true }
+            });
+        }
+        
+
+
 
 
     async eliminarPrestamo(id: number) {

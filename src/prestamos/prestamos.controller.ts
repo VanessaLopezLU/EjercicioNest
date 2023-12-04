@@ -20,6 +20,10 @@ export class PrestamosController {
     obtenerPorCedula(@Param('cedula') cedula:number ){
         return this.prestamosService.obtenerPorCedula(cedula);
   }
+  @Get('/obtenerPorCedula/prestado/:cedula')
+    obtenerPorcedulaPrestado(@Param('cedula') cedula:number ){
+        return this.prestamosService.obtenerPorCedula(cedula);
+  }
 
   @Delete('/:id')
   eliminar(@Param('id') id: number) {
