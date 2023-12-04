@@ -7,9 +7,12 @@ import { DetalleprestamoService } from 'src/detalleprestamo/detalleprestamo.serv
 import { Equipo } from 'src/equipo/entities/Equipo.entity';
 import { DetallePrestamo } from 'src/detalleprestamo/entities/detalleprestamo.entity';
 import { CreateDetallePrestamoDto } from 'src/detalleprestamo/dto/create-detalleprestamo.dto';
+import { UpdatePrestamoDto } from './dto/update-prestamo.dto';
+import { UpdateEstadoprestamoDto } from 'src/estadoprestamo/dto/update-estadoprestamo.dto';
 
 @Injectable()
 export class PrestamosService {
+
     ObtenerPrestamo() {
         throw new Error('Method not implemented.');
     }
@@ -157,4 +160,8 @@ export class PrestamosService {
         }
         return this.PrestamoTabla.delete(id);
     }
+
+    async actualizarPrestamo(id: number ,actualizarPrestamo:UpdateEstadoprestamoDto){
+        return  await this.PrestamoTabla.update(id,{id_estado:{id:actualizarPrestamo.id}});
+      }
 }
