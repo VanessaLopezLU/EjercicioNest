@@ -8,8 +8,9 @@ export class UserController {
  constructor(private readonly userService:UserService){}
  
  @Post('/crear')
-  CrearUser(@Body()UserDto: UserDto){
-   return this.userService.CrearUser(UserDto);
+  CrearUser(@Body()userDto: UserDto){
+    console.log(userDto)
+   return this.userService.CrearUser(userDto);
  }
  @Get('')
  obtener() {

@@ -1,6 +1,7 @@
 
 import { DetallePrestamo } from "src/detalleprestamo/entities/detalleprestamo.entity";
 import { EstadoPrestamo } from "src/estadoprestamo/entities/estadoprestamo.entity";
+import { Novedad } from "src/novedades/entities/novedades.entity";
 import { User } from "src/user/user.entity";
 import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -31,8 +32,8 @@ export class  Prestamo{
     }) 
     id_estado: EstadoPrestamo;
 
-    /*@OneToMany(()=>Novedad,(novedad)=>novedad.id)
-    novedades:Novedad[];*/
+    @OneToMany(()=>Novedad,(devolucion)=>devolucion.prestamo)
+    devolucion:Novedad[];
 
     /*@ManyToOne(()=> Equipo, equipo => equipo.prestamo)
     @JoinColumn({name: 'id_equipo'})

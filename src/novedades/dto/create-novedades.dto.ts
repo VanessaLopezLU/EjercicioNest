@@ -1,21 +1,30 @@
 import { IsInt, IsNotEmpty, IsString } from 'class-validator';
+import { Equipo } from 'src/equipo/entities/Equipo.entity';
+import { EstadoEquipo } from 'src/estado-equipo/entities/estado-equipo.entity';
+import { EstadoPrestamo } from 'src/estadoprestamo/entities/estadoprestamo.entity';
+import { Prestamo } from 'src/prestamos/entities/prestamos.entity';
 
 
 export class CreateNovedadesDto {
     @IsString()
     @IsNotEmpty()
-    descripcion: string;
-
-    @IsString()
-    @IsNotEmpty()
-    fechaNovedad: string;
-
-    @IsString()
-    @IsNotEmpty()
-    tipoNovedad: string;
+    novedad: string;
 
     @IsInt()
     @IsNotEmpty()
-    id_prestamo: number;
+    prestamo: Prestamo;
+
+
+    @IsInt()
+    @IsNotEmpty() 
+    equipo: Equipo;
+
+    @IsInt()
+    @IsNotEmpty()
+    estado_equipo: EstadoEquipo;
+
+    @IsInt()
+    @IsNotEmpty()
+    estado_prestamo: EstadoPrestamo;
 
 }

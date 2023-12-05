@@ -8,8 +8,8 @@ export class NovedadesController {
   constructor(private readonly novedadesService: NovedadesService) {}
 
   @Post('/crear')
-  create(@Body() CreateNovedadesDto: CreateNovedadesDto){
-    return this.novedadesService.CrearNovedad(CreateNovedadesDto);
+  create(@Body() novedades: CreateNovedadesDto[]){
+    return this.novedadesService.crearNovedades(novedades);
   }
 
   @Get('')

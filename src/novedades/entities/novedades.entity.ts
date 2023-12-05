@@ -1,3 +1,5 @@
+import { Equipo } from "src/equipo/entities/Equipo.entity";
+import { EstadoEquipo } from "src/estado-equipo/entities/estado-equipo.entity";
 import { Prestamo } from "src/prestamos/entities/prestamos.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -5,23 +7,26 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColum
 @Entity()
 export class Novedad {
     @PrimaryGeneratedColumn()
-    id: number;
-    
-   
-    @Column()
-    descripcion: string;
+    id : number;
 
     @Column()
-    fecha_novedad: Date;
+    novedad : string;
 
-    @Column()
-    tipo_novedad: string;
-    @Column()
-    estado_novedad: string;
+    @ManyToOne(()=> Prestamo, (prestamo)=> prestamo.devolucion,{
+        eager: true
+    } )
+    prestamo : Prestamo;
 
-   /* @ManyToOne(()=>Prestamo,prestamo=>prestamo.novedades)
-    @JoinColumn({name:'id_prestamo'})
-    prestamo:Prestamo[];*/
+    @ManyToOne(()=> Equipo, (equipo) => equipo.devolucion,{
+        eager: true
+    })
+    equipo: Equipo;
+
+   @ManyToOne(()=> EstadoEquipo,(estadoEquipo)=> estadoEquipo.devolucion,{
+    eager: true
+   })
+   estado_equipo: EstadoEquipo;
+
 
 
 

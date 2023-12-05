@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateDetallePrestamoDto, fechaValidacion } from './dto/create-detalleprestamo.dto';
-import { UpdateDetallePrestamoDto } from './dto/update-detalleprestamo.dto';
 import { DetallePrestamo } from './entities/detalleprestamo.entity';
 import {
   Between,
@@ -11,6 +10,7 @@ import {
   Repository,
 } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Prestamo } from 'src/prestamos/entities/prestamos.entity';
 
 @Injectable()
 export class DetalleprestamoService {
@@ -18,6 +18,7 @@ export class DetalleprestamoService {
     private dataSource: DataSource,
     @InjectRepository(DetallePrestamo)
     private detalleprestamoTabla: Repository<DetallePrestamo>,
+    @InjectRepository(Prestamo) private prestamoTabla:Repository<Prestamo>
   ) {}
   async crearPrestamo(detalleprestamo: CreateDetallePrestamoDto) {
     return await this.detalleprestamoTabla.insert(detalleprestamo);
