@@ -23,9 +23,8 @@ export class NovedadesService {
     async Crear(novedad: CreateNovedadesDto){
         let Noexiste = await this.ValidarQueNoExista(novedad);
         if(Noexiste){
-            console.log("entro");
-            await this.EquipoTabla.update(novedad.equipo,  {id_estado: novedad.estado_equipo});
-            console.log(novedad);
+            console.log("actualizo el estado");
+            await this.EquipoTabla.update(novedad.equipo,  {id_estado: novedad.estado});
              await this.NovedadesTabla.insert(novedad);
         }
         return 'Ya Existe'

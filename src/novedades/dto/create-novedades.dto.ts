@@ -21,7 +21,7 @@ export class CreateNovedadesDto {
 
     @IsInt()
     @IsNotEmpty()
-    estado_equipo: EstadoEquipo;
+    estado: EstadoEquipo;
 
     @IsInt()
     @IsNotEmpty()

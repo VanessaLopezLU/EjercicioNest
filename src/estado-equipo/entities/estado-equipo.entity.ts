@@ -16,9 +16,7 @@ export class EstadoEquipo {
     equipo: Equipo[];
     
 
-    @OneToMany(()=>Novedad,(devolucion)=>devolucion.estado_equipo)
-    devolucion:Novedad[];
-
+  
 
   
 

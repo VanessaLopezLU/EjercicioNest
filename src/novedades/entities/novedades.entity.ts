@@ -22,10 +22,7 @@ export class Novedad {
     })
     equipo: Equipo;
 
-   @ManyToOne(()=> EstadoEquipo,(estadoEquipo)=> estadoEquipo.devolucion,{
-    eager: true
-   })
-   estado_equipo: EstadoEquipo;
+
 
 
 
